@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://ce0x3xwfic2wv"]
 
-[ext_resource type="Texture2D" uid="uid://cdlayd7y7q7ue" path="res://icon_upside_down.png" id="1_g4qto"]
-[ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://player.gd" id="1_hr5et"]
-[ext_resource type="Texture2D" uid="uid://kwnf7ao7lnmo" path="res://icon.svg" id="2_hr5et"]
+[ext_resource type="Texture2D" uid="uid://cvm1yjd8x3724" path="res://images/mask_red.png" id="4_61od6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_88b43"]
 
@@ -11,27 +9,6 @@ size = Vector2(85.40066, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88b43"]
 size = Vector2(147, 94)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_61od6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_g4qto")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_hr5et")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4qto"]
 
 [node name="Node2D" type="Node2D" unique_id=1138022434]
 
@@ -118,17 +95,6 @@ offset_bottom = 40.0
 border_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
 editor_only = false
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=2111273280]
-position = Vector2(169, 229)
-scale = Vector2(0.6982708, 0.6682117)
-script = ExtResource("1_hr5et")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1709235387]
-sprite_frames = SubResource("SpriteFrames_61od6")
-animation = &"walk"
-frame_progress = 0.502282
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=328733562]
-scale = Vector2(6.358472, 6.358472)
-shape = SubResource("RectangleShape2D_g4qto")
+[node name="MaskRed" type="Sprite2D" parent="." unique_id=1134564570]
+position = Vector2(407, 350)
+texture = ExtResource("4_61od6")
