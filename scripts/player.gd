@@ -5,6 +5,7 @@ extends CharacterBody2D
 var tile_size: Vector2i # Size of one tile
 var remaining_move_delay: float
 
+var collected_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
 var active_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
 var all_active_masks: Array[Global.TileColor] = [] # Absolut jank
 
@@ -14,6 +15,9 @@ func _ready() -> void:
 	tile_size = white_map.tile_set.tile_size
 
 func toggle_mask(mask: Global.TileColor):
+	if not collected_masks.has(mask):
+		return
+
 	if active_masks.has(mask):
 		active_masks.erase(mask)
 	else:
@@ -62,17 +66,17 @@ func _process(delta: float) -> void:
 		remaining_move_delay = move_delay
 
 		if moved:
-			$AnimatedSprite2D.play()
+			$Sprite.play()
 	else:
-		$AnimatedSprite2D.stop()
+		$Sprite.stop()
 
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_v = false
-		$AnimatedSprite2D.flip_h = velocity.x < 0
+		$Sprite.animation = "walk"
+		$Sprite.flip_v = false
+		$Sprite.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "up"
-		$AnimatedSprite2D.flip_v = velocity.y > 0
+		$Sprite.animation = "up"
+		$Sprite.flip_v = velocity.y > 0
 
 func get_current_tile() -> Vector2i:
 	# Current position is the pixel pos divided by the tile size. -0.5 is added to remove the center offset in the tile of the player

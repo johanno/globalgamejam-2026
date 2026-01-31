@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://badwwdavjnjns"]
+
+[ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cdlayd7y7q7ue" path="res://icon_upside_down.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://kwnf7ao7lnmo" path="res://icon.svg" id="3_qlg0r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_246ao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dqkch")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qlg0r")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exm5h"]
+size = Vector2(56, 56)
+
+[node name="Player" type="CharacterBody2D" unique_id=1723262677]
+script = ExtResource("1_qhqgy")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1388521304]
+scale = Vector2(0.4375, 0.4375)
+sprite_frames = SubResource("SpriteFrames_246ao")
+animation = &"walk"
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=654801228]
+shape = SubResource("RectangleShape2D_exm5h")

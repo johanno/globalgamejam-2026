@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://hfgsj1sjss64"]
+
+[ext_resource type="Script" uid="uid://dit23ptcb8os2" path="res://scripts/world.gd" id="1_ifni6"]
+[ext_resource type="TileSet" uid="uid://dsb5rh7cyoisp" path="res://all_tiles.tres" id="2_coiuk"]
+[ext_resource type="PackedScene" uid="uid://badwwdavjnjns" path="res://scenes/player.tscn" id="4_7aoxt"]
+[ext_resource type="PackedScene" uid="uid://cdgvrxot6yg2c" path="res://scenes/mask.tscn" id="5_qxa03"]
+[ext_resource type="PackedScene" uid="uid://btrs1ceonxg7w" path="res://scenes/spike.tscn" id="8_coiuk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_coiuk"]
+
+[node name="TileScene" type="Node2D" unique_id=967353875]
+script = ExtResource("1_ifni6")
+
+[node name="World" type="Node2D" parent="." unique_id=929708630]
+unique_name_in_owner = true
+
+[node name="Red" type="TileMapLayer" parent="World" unique_id=391483729]
+tile_set = ExtResource("2_coiuk")
+
+[node name="Green" type="TileMapLayer" parent="World" unique_id=969362466]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_coiuk")
+
+[node name="Blue" type="TileMapLayer" parent="World" unique_id=795817262]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0)
+tile_set = ExtResource("2_coiuk")
+
+[node name="White" type="TileMapLayer" parent="World" unique_id=369929052]
+tile_map_data = PackedByteArray(0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 7, 0, 0, 0, 0, 0, 3, 0, 0, 0)
+tile_set = ExtResource("2_coiuk")
+
+[node name="Yellow" type="TileMapLayer" parent="World" unique_id=1891298997]
+tile_set = ExtResource("2_coiuk")
+
+[node name="Cyan" type="TileMapLayer" parent="World" unique_id=1027359205]
+tile_map_data = PackedByteArray(0, 0, 5, 0, 2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 3, 0, 0, 0)
+tile_set = ExtResource("2_coiuk")
+
+[node name="Magenta" type="TileMapLayer" parent="World" unique_id=2099105749]
+tile_set = ExtResource("2_coiuk")
+
+[node name="Entities" type="Node2D" parent="World" unique_id=403681453]
+
+[node name="Spike" parent="World/Entities" unique_id=162515309 instance=ExtResource("8_coiuk")]
+material = SubResource("CanvasItemMaterial_coiuk")
+position = Vector2(224, 225)
+
+[node name="Player" parent="." unique_id=1723262677 instance=ExtResource("4_7aoxt")]
+position = Vector2(96, 96)
+
+[node name="Mask" parent="." unique_id=909963934 instance=ExtResource("5_qxa03")]
+position = Vector2(224, 96)
