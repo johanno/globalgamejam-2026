@@ -82,3 +82,11 @@ script = ExtResource("6_401en")
 
 [node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("6_dvhev")
+[node name="UI" type="Node2D" parent="." unique_id=1861634259]
+
+[node name="Label" type="Label" parent="UI" unique_id=2093852277]
+offset_left = 862.0
+offset_top = 334.0
+offset_right = 902.0
+offset_bottom = 357.0
+text = "W"
