@@ -1,8 +1,6 @@
-[gd_scene format=3 uid="uid://ce0x3xwfic2wv"]
+[gd_scene format=3 uid="uid://ve31dv0fbieq"]
 
-[ext_resource type="Texture2D" uid="uid://cdlayd7y7q7ue" path="res://icon_upside_down.png" id="1_g4qto"]
-[ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://player.gd" id="1_hr5et"]
-[ext_resource type="Texture2D" uid="uid://kwnf7ao7lnmo" path="res://icon.svg" id="2_hr5et"]
+[ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://player.gd" id="1_37kl0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_88b43"]
 
@@ -12,26 +10,11 @@ size = Vector2(85.40066, 75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88b43"]
 size = Vector2(147, 94)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_61od6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_g4qto")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_hr5et")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
+size = Vector2(147, 94)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4qto"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
+size = Vector2(147, 94)
 
 [node name="Node2D" type="Node2D" unique_id=1138022434]
 
@@ -78,7 +61,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlattformGruen" unique_id=920901954]
 position = Vector2(84, 110)
-shape = SubResource("RectangleShape2D_88b43")
+shape = SubResource("RectangleShape2D_8uh7m")
 
 [node name="ColorRect" type="ColorRect" parent="PlattformGruen/CollisionShape2D" unique_id=596830708]
 offset_left = -74.0
@@ -101,7 +84,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlattformRot" unique_id=2135222899]
 position = Vector2(84, 110)
-shape = SubResource("RectangleShape2D_88b43")
+shape = SubResource("RectangleShape2D_6uqi0")
 
 [node name="ColorRect" type="ColorRect" parent="PlattformRot/CollisionShape2D" unique_id=2015381650]
 offset_left = -74.0
@@ -118,17 +101,6 @@ offset_bottom = 40.0
 border_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
 editor_only = false
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=2111273280]
-position = Vector2(169, 229)
-scale = Vector2(0.6982708, 0.6682117)
-script = ExtResource("1_hr5et")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1709235387]
-sprite_frames = SubResource("SpriteFrames_61od6")
-animation = &"walk"
-frame_progress = 0.7781645
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=328733562]
-scale = Vector2(6.358472, 6.358472)
-shape = SubResource("RectangleShape2D_g4qto")
+[node name="Area2D2" type="Area2D" parent="." unique_id=1464895434]
+scale = Vector2(0.7188692, 0.71753037)
+script = ExtResource("1_37kl0")
