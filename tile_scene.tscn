@@ -1,7 +1,8 @@
-[gd_scene format=4 uid="uid://hfgsj1sjss64"]
+[gd_scene format=3 uid="uid://hfgsj1sjss64"]
 
-[ext_resource type="TileSet" uid="uid://dncnkf1sw7nkf" path="res://tiles.tres" id="1_exm5h"]
-[ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://player.gd" id="2_exm5h"]
+[ext_resource type="Script" uid="uid://dit23ptcb8os2" path="res://scripts/world.gd" id="1_dvhev"]
+[ext_resource type="TileSet" uid="uid://dfr8j2i71a8l6" path="res://all_tiles.tres" id="2_246ao"]
+[ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://scripts/player.gd" id="2_exm5h"]
 [ext_resource type="Texture2D" uid="uid://kwnf7ao7lnmo" path="res://icon.svg" id="2_vvqtr"]
 [ext_resource type="Texture2D" uid="uid://cdlayd7y7q7ue" path="res://icon_upside_down.png" id="4_hx1v8"]
 
@@ -28,14 +29,38 @@ animations = [{
 size = Vector2(56, 56)
 
 [node name="TileScene" type="Node2D" unique_id=2123910999]
+script = ExtResource("1_dvhev")
 
-[node name="WorldTiles" type="TileMapLayer" parent="." unique_id=1637779852]
+[node name="World" type="Node2D" parent="." unique_id=775141828]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAABAAAAAAAMAAUAAAACAAAAAAAMAAUAAAADAAAAAAAMAAUAAAAEAAAAAAAMAAUAAAAFAAAAAAAMAAUAAAAGAAAAAAAMAAUAAAAHAAAAAAAMAAUAAAAIAAAAAAAMAAUAAAAJAAAAAAAMAAUAAAAKAAAAAAAMAAUAAAALAAAAAAAMAAUAAAAMAAAAAAAMAAUAAAANAAAAAAAMAAUAAAAOAAAAAAAMAAUAAAAPAAAAAAAMAAUAAAAQAAAAAAAMAAUAAAARAAAAAAAMAAUAAAARAAEAAAAMAAUAAAARAAIAAAAMAAUAAAARAAMAAAAMAAUAAAARAAQAAAAMAAUAAAARAAUAAAAMAAUAAAARAAYAAAAMAAUAAAARAAcAAAAMAAUAAAARAAgAAAAMAAUAAAARAAkAAAAMAAUAAAAQAAkAAAAMAAUAAAAPAAkAAAAMAAUAAAAOAAkAAAAMAAUAAAANAAkAAAAMAAUAAAAMAAkAAAAMAAUAAAALAAkAAAAMAAUAAAAGAAkAAAAMAAUAAAAFAAkAAAAMAAUAAAAEAAkAAAAMAAUAAAADAAkAAAAMAAUAAAACAAkAAAAMAAUAAAABAAkAAAAMAAUAAAAAAAkAAAAMAAUAAAAAAAgAAAAMAAUAAAAAAAcAAAAMAAUAAAAAAAYAAAAMAAUAAAAAAAUAAAAMAAUAAAAAAAQAAAAMAAUAAAAAAAMAAAAMAAUAAAAAAAIAAAAMAAUAAAAAAAEAAAAMAAUAAAAHAAkAAAAMAAUAAAAIAAkAAAAMAAUAAAAJAAkAAAAMAAUAAAAKAAkAAAAMAAUAAAAFAAQAAAAMAAUAAAAFAAUAAAARAAYAAAAGAAUAAAARAAYAAAAGAAQAAAAMAAUAAAAHAAQAAAAMAAUAAAANAAUAAAANAAYAAAAMAAUAAAANAAYAAAAMAAQAAAANAAYAAAAMAAMAAAANAAYAAAANAAMAAAANAAYAAAANAAQAAAANAAYAAAAGAAgAAAAMAAUAAAAGAAcAAAAMAAUAAAAGAAYAAAAMAAUAAAAFAAYAAAAMAAUAAAAEAAYAAAAMAAUAAAADAAYAAAAMAAUAAAACAAYAAAAMAAUAAAABAAQAAAAMAAUAAAACAAQAAAAMAAUAAAADAAQAAAAMAAUAAAADAAMAAAAMAAUAAAADAAIAAAAMAAUAAAAIAAQAAAAMAAUAAAAIAAMAAAAMAAUAAAAIAAIAAAAMAAUAAAAIAAEAAAAMAAUAAAAJAAYAAAAMAAUAAAAJAAcAAAAMAAUAAAAJAAgAAAAMAAUAAAAAAAAAAAAMAAUAAAA=")
-tile_set = ExtResource("1_exm5h")
+
+[node name="Red" type="TileMapLayer" parent="World" unique_id=1637779852]
+tile_set = ExtResource("2_246ao")
+
+[node name="Green" type="TileMapLayer" parent="World" unique_id=1528078694]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_246ao")
+
+[node name="Blue" type="TileMapLayer" parent="World" unique_id=425468837]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0)
+tile_set = ExtResource("2_246ao")
+
+[node name="White" type="TileMapLayer" parent="World" unique_id=1647939290]
+tile_map_data = PackedByteArray(0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 7, 0, 0, 0, 0, 0, 3, 0, 0, 0)
+tile_set = ExtResource("2_246ao")
+
+[node name="Yellow" type="TileMapLayer" parent="World" unique_id=1207379518]
+tile_set = ExtResource("2_246ao")
+
+[node name="Cyan" type="TileMapLayer" parent="World" unique_id=1754552086]
+tile_map_data = PackedByteArray(0, 0, 5, 0, 2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 3, 0, 0, 0)
+tile_set = ExtResource("2_246ao")
+
+[node name="Magenta" type="TileMapLayer" parent="World" unique_id=454786127]
+tile_set = ExtResource("2_246ao")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2000419158]
-position = Vector2(263, 501)
+position = Vector2(96, 96)
 script = ExtResource("2_exm5h")
 metadata/_edit_group_ = true
 
