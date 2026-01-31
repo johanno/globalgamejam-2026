@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://hfgsj1sjss64"]
+
+[ext_resource type="Script" uid="uid://dit23ptcb8os2" path="res://scripts/world.gd" id="1_ifni6"]
+[ext_resource type="TileSet" uid="uid://dfr8j2i71a8l6" path="res://all_tiles.tres" id="2_coiuk"]
+[ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://scripts/player.gd" id="3_tyekv"]
+[ext_resource type="Texture2D" uid="uid://cdlayd7y7q7ue" path="res://icon_upside_down.png" id="4_axvps"]
+[ext_resource type="Texture2D" uid="uid://kwnf7ao7lnmo" path="res://icon.svg" id="5_nmkfl"]
+[ext_resource type="Script" uid="uid://cxycuawehe5rj" path="res://item.gd" id="6_2dej1"]
+[ext_resource type="Texture2D" uid="uid://cas2ym5heefc4" path="res://images/mask_blue.png" id="7_r2htv"]
+[ext_resource type="PackedScene" uid="uid://btrs1ceonxg7w" path="res://scenes/spike.tscn" id="8_coiuk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_246ao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_axvps")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nmkfl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exm5h"]
+size = Vector2(56, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_coiuk"]
+size = Vector2(64, 64)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_coiuk"]
+
+[node name="TileScene" type="Node2D" unique_id=967353875]
+script = ExtResource("1_ifni6")
+
+[node name="World" type="Node2D" parent="." unique_id=929708630]
+unique_name_in_owner = true
+
+[node name="Entities" type="Node2D" parent="World" unique_id=403681453]
+
+[node name="Red" type="TileMapLayer" parent="World" unique_id=391483729]
+tile_set = ExtResource("2_coiuk")
+
+[node name="Green" type="TileMapLayer" parent="World" unique_id=969362466]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_coiuk")
+
+[node name="Blue" type="TileMapLayer" parent="World" unique_id=795817262]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0)
+tile_set = ExtResource("2_coiuk")
+
+[node name="White" type="TileMapLayer" parent="World" unique_id=369929052]
+tile_map_data = PackedByteArray(0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 7, 0, 0, 0, 0, 0, 3, 0, 0, 0)
+tile_set = ExtResource("2_coiuk")
+
+[node name="Yellow" type="TileMapLayer" parent="World" unique_id=1891298997]
+tile_set = ExtResource("2_coiuk")
+
+[node name="Cyan" type="TileMapLayer" parent="World" unique_id=1027359205]
+tile_map_data = PackedByteArray(0, 0, 5, 0, 2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 3, 0, 0, 0)
+tile_set = ExtResource("2_coiuk")
+
+[node name="Magenta" type="TileMapLayer" parent="World" unique_id=2099105749]
+tile_set = ExtResource("2_coiuk")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1521831558]
+position = Vector2(96, 96)
+script = ExtResource("3_tyekv")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=856191274]
+scale = Vector2(0.4375, 0.4375)
+sprite_frames = SubResource("SpriteFrames_246ao")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=225224512]
+shape = SubResource("RectangleShape2D_exm5h")
+
+[node name="Mask" type="Area2D" parent="." unique_id=1779730677]
+position = Vector2(224, 96)
+script = ExtResource("6_2dej1")
+metadata/_edit_group_ = true
+
+[node name="Collider" type="CollisionShape2D" parent="Mask" unique_id=1140543656]
+shape = SubResource("RectangleShape2D_coiuk")
+
+[node name="Sprite" type="Sprite2D" parent="Mask" unique_id=1565364516]
+texture = ExtResource("7_r2htv")
+
+[node name="Spike" parent="." unique_id=162515309 instance=ExtResource("8_coiuk")]
+material = SubResource("CanvasItemMaterial_coiuk")
+position = Vector2(224, 225)
