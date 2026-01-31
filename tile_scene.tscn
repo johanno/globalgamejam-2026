@@ -46,13 +46,14 @@ tile_map_data = PackedByteArray(0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 
 tile_set = ExtResource("2_246ao")
 
 [node name="White" type="TileMapLayer" parent="World" unique_id=1647939290]
-tile_map_data = PackedByteArray(0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 7, 0, 0, 0, 0, 0, 2, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 7, 0, 0, 0, 0, 0, 3, 0, 0, 0)
 tile_set = ExtResource("2_246ao")
 
 [node name="Yellow" type="TileMapLayer" parent="World" unique_id=1207379518]
 tile_set = ExtResource("2_246ao")
 
 [node name="Cyan" type="TileMapLayer" parent="World" unique_id=1754552086]
+tile_map_data = PackedByteArray(0, 0, 5, 0, 2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 3, 0, 0, 0)
 tile_set = ExtResource("2_246ao")
 
 [node name="Magenta" type="TileMapLayer" parent="World" unique_id=454786127]

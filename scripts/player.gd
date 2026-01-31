@@ -4,24 +4,39 @@ extends CharacterBody2D
 var tile_size: Vector2i # Size of one tile
 var remaining_move_delay: float
 
-@export var active_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
+var active_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
+var all_active_masks: Array[Global.TileColor] = [] # Absolut jank
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.add_complementary_colors(active_masks)
-
 	var white_map = %World/White
-	print(white_map)
 	tile_size = white_map.tile_set.tile_size
+
+func toggle_mask(mask: Global.TileColor):
+	if active_masks.has(mask):
+		active_masks.erase(mask)
+	else:
+		active_masks.append(mask)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_parent().update_tile_layers(active_masks)
+	get_parent().update_tile_layers(all_active_masks)
 
 	velocity = Vector2.ZERO
 
 	if Input.is_action_pressed("quit_game"):
 		get_tree().quit()
+
+	if Input.is_action_just_pressed("toggle_red_mask"):
+		toggle_mask(Global.TileColor.RED)
+
+	if Input.is_action_just_pressed("toggle_blue_mask"):
+		toggle_mask(Global.TileColor.BLUE)
+
+	if Input.is_action_just_pressed("toggle_green_mask"):
+		toggle_mask(Global.TileColor.GREEN)
+
+	all_active_masks = Global.add_complementary_colors(active_masks)
 
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down"):
 		remaining_move_delay = 0
@@ -50,7 +65,6 @@ func _process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.stop()
 
-
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_v = false
@@ -68,7 +82,7 @@ func move_in_direction(direction: Vector2i) -> bool:
 	var new_tile = current_tile + direction
 
 	var has_tile = false
-	for layer in get_parent().get_tile_layers(active_masks):
+	for layer in get_parent().get_tile_layers(all_active_masks):
 		var new_tile_data = layer.get_cell_tile_data(new_tile) as TileData
 		if new_tile_data != null:
 			has_tile = true
