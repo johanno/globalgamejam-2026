@@ -1,3 +1,4 @@
+class_name TileScene
 extends Node
 
 var all_tile_layers: Dictionary[Global.TileColor, TileMapLayer]

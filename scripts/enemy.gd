@@ -1,10 +1,10 @@
-class_name Player
 extends CharacterBody2D
 
-@export var move_delay = 0.25
+@export var move_delay: float = 2.0
 var tile_size: Vector2i # Size of one tile
 var remaining_move_delay: float
 
+@export var playerClass: Player # Player
 var active_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
 var all_active_masks: Array[Global.TileColor] = [] # Absolut jank
 
@@ -12,50 +12,20 @@ var all_active_masks: Array[Global.TileColor] = [] # Absolut jank
 func _ready() -> void:
 	var white_map = %World/White
 	tile_size = white_map.tile_set.tile_size
-
-func toggle_mask(mask: Global.TileColor):
-	if active_masks.has(mask):
-		active_masks.erase(mask)
-	else:
-		active_masks.append(mask)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	get_parent().update_tile_layers(all_active_masks)
-
-	velocity = Vector2.ZERO
-
-	if Input.is_action_pressed("quit_game"):
-		get_tree().quit()
-
-	if Input.is_action_just_pressed("toggle_red_mask"):
-		toggle_mask(Global.TileColor.RED)
-
-	if Input.is_action_just_pressed("toggle_blue_mask"):
-		toggle_mask(Global.TileColor.BLUE)
-
-	if Input.is_action_just_pressed("toggle_green_mask"):
-		toggle_mask(Global.TileColor.GREEN)
-
 	all_active_masks = Global.add_complementary_colors(active_masks)
 
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down"):
-		remaining_move_delay = 0
-
+func _physics_process(delta: float) -> void:
+	velocity = Vector2.ZERO
 	if remaining_move_delay > 0:
 		remaining_move_delay -= delta
 		return
-
-	var direction = Vector2i.ZERO
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-	elif Input.is_action_pressed("move_left"):
-		direction.x -= 1
-	elif Input.is_action_pressed("move_down"):
-		direction.y += 1
-	elif Input.is_action_pressed("move_up"):
-		direction.y -= 1
-
+	# TODO change to more random
+	var direction: Vector2i = (playerClass.get_current_tile() - get_current_tile()).clampi(-1,1)
+	if direction.x != 0 and direction.y != 0:
+		if randi_range(0,1) == 0:
+			direction.x = 0
+		else: 
+			direction.y = 0
 	var moved = move_in_direction(direction)
 
 	if direction.length() > 0:
@@ -66,24 +36,28 @@ func _process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.stop()
 
-	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_v = false
-		$AnimatedSprite2D.flip_h = velocity.x < 0
-	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "up"
-		$AnimatedSprite2D.flip_v = velocity.y > 0
+	if velocity.x != 0 or velocity.y != 0:
+		$AnimatedSprite2D.animation = "move"
+	else:
+		$AnimatedSprite2D.animation = "idle"
 
 func get_current_tile() -> Vector2i:
 	# Current position is the pixel pos divided by the tile size. -0.5 is added to remove the center offset in the tile of the player
 	return Vector2i(int(position.x / tile_size.x - 0.5), int(position.y / tile_size.y - 0.5))
 
+
 func move_in_direction(direction: Vector2i) -> bool:
+	var player_masks = playerClass.all_active_masks
+	print(direction)
 	var current_tile = get_current_tile()
 	var new_tile = current_tile + direction
-
+	var all_layers: Array[TileMapLayer] = get_parent().get_tile_layers(player_masks)
+	print(all_layers)
+	print(player_masks)
+	if all_layers.is_empty():
+		return false
 	var has_tile = false
-	for layer in get_parent().get_tile_layers(all_active_masks):
+	for layer in all_layers:
 		var new_tile_data = layer.get_cell_tile_data(new_tile) as TileData
 		if new_tile_data != null:
 			has_tile = true
@@ -91,7 +65,7 @@ func move_in_direction(direction: Vector2i) -> bool:
 				return false
 
 	if not has_tile:
-		get_tree().quit()
+		return false
 
 	var move = direction * tile_size
 	position += Vector2(move.x, move.y)
