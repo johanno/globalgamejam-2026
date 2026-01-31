@@ -1,26 +1,48 @@
 extends CharacterBody2D
 
 @export var move_delay: float = 2.0
+@export var color: Global.TileColor
+var modulate_color: Color = Color("red")
 var tile_size: Vector2i # Size of one tile
 var remaining_move_delay: float
 
-@export var playerClass: Player # Player
-var active_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
-var all_active_masks: Array[Global.TileColor] = [] # Absolut jank
+@export var player: Player # Player
+
+func map_tile_color_to_color(tileColor: Global.TileColor) -> Color:
+	match tileColor:
+		Global.TileColor.RED:
+			return Color("red")
+		Global.TileColor.GREEN:
+			return Color("green")
+		Global.TileColor.BLUE:
+			return Color("blue")
+		Global.TileColor.YELLOW:
+			return Color("yellow")
+		Global.TileColor.CYAN:
+			return Color("cyan")
+		Global.TileColor.MAGENTA:
+			return Color("magenta")
+		Global.TileColor.WHITE:
+			return Color("lightGray")
+	return Color("lightGray")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var white_map = %World/White
 	tile_size = white_map.tile_set.tile_size
-	all_active_masks = Global.add_complementary_colors(active_masks)
+	modulate_color = map_tile_color_to_color(color)
+	
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
 	if remaining_move_delay > 0:
 		remaining_move_delay -= delta
 		return
+	if player == null:
+		return
 	# TODO change to more random
-	var direction: Vector2i = (playerClass.get_current_tile() - get_current_tile()).clampi(-1,1)
+	var direction: Vector2i = (player.get_current_tile() - get_current_tile()).clampi(-1,1)
 	if direction.x != 0 and direction.y != 0:
 		if randi_range(0,1) == 0:
 			direction.x = 0
@@ -47,7 +69,7 @@ func get_current_tile() -> Vector2i:
 
 
 func move_in_direction(direction: Vector2i) -> bool:
-	var player_masks = playerClass.all_active_masks
+	var player_masks = player.all_active_masks
 	print(direction)
 	var current_tile = get_current_tile()
 	var new_tile = current_tile + direction
