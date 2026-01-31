@@ -1,0 +1,81 @@
+[gd_scene format=4 uid="uid://bca13baoy5pix"]
+
+[ext_resource type="Script" uid="uid://dit23ptcb8os2" path="res://scripts/world.gd" id="1_b72m1"]
+[ext_resource type="TileSet" uid="uid://dsb5rh7cyoisp" path="res://all_tiles.tres" id="2_5mhml"]
+[ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://scripts/player.gd" id="3_rupth"]
+[ext_resource type="Texture2D" uid="uid://cdlayd7y7q7ue" path="res://icon_upside_down.png" id="4_6qt4k"]
+[ext_resource type="Texture2D" uid="uid://kwnf7ao7lnmo" path="res://icon.svg" id="5_fh4ka"]
+[ext_resource type="PackedScene" uid="uid://b0ql3ja5rtxi8" path="res://scenes/mask_red.tscn" id="6_qewby"]
+[ext_resource type="PackedScene" uid="uid://dmvgy7ro83k1a" path="res://scenes/enemy.tscn" id="7_bradm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_246ao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6qt4k")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fh4ka")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exm5h"]
+size = Vector2(56, 56)
+
+[node name="TileScene" type="Node2D" unique_id=1554157182]
+script = ExtResource("1_b72m1")
+
+[node name="World" type="Node2D" parent="." unique_id=1650353264]
+unique_name_in_owner = true
+
+[node name="Red" type="TileMapLayer" parent="World" unique_id=1321831016]
+tile_map_data = PackedByteArray("AAADAAYAAAAAAAIAAAADAAUAAAAAAAIAAAADAAQAAAAAAAIAAAA=")
+tile_set = ExtResource("2_5mhml")
+
+[node name="Green" type="TileMapLayer" parent="World" unique_id=208363271]
+tile_set = ExtResource("2_5mhml")
+
+[node name="Blue" type="TileMapLayer" parent="World" unique_id=919658176]
+tile_set = ExtResource("2_5mhml")
+
+[node name="White" type="TileMapLayer" parent="World" unique_id=1805872778]
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAMAAAACAAEAAAAAAAMAAAADAAcAAAAAAAMAAAACAAIAAAAAAAMAAAABAAIAAAAAAAMAAAADAAMAAAAAAAMAAAADAAIAAAAAAAMAAAADAAgAAAAAAAMAAAAEAAgAAAAAAAMAAAACAAgAAAAAAAMAAAACAAAAAAAAAAMAAAACAP//AAAAAAMAAAADAP//AAAAAAMAAAAEAP//AAAAAAMAAAAEAAAAAAAAAAMAAAAEAAEAAAAAAAMAAAAEAAIAAAAAAAMAAAA=")
+tile_set = ExtResource("2_5mhml")
+
+[node name="Yellow" type="TileMapLayer" parent="World" unique_id=238043569]
+tile_set = ExtResource("2_5mhml")
+
+[node name="Cyan" type="TileMapLayer" parent="World" unique_id=1116218163]
+tile_set = ExtResource("2_5mhml")
+
+[node name="Magenta" type="TileMapLayer" parent="World" unique_id=997281400]
+tile_set = ExtResource("2_5mhml")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=339229453]
+position = Vector2(96, 96)
+script = ExtResource("3_rupth")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Player" unique_id=365982315]
+scale = Vector2(0.4375, 0.4375)
+sprite_frames = SubResource("SpriteFrames_246ao")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1958576785]
+shape = SubResource("RectangleShape2D_exm5h")
+
+[node name="Mask" parent="." unique_id=909963934 instance=ExtResource("6_qewby")]
+position = Vector2(288, 159)
+
+[node name="Enemy" parent="." unique_id=1253163092 node_paths=PackedStringArray("player") instance=ExtResource("7_bradm")]
+position = Vector2(224, 544)
+color = 1
+player = NodePath("../Player")

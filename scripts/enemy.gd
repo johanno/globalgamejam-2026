@@ -31,18 +31,28 @@ func map_tile_color_to_color(tileColor: Global.TileColor) -> Color:
 func _ready() -> void:
 	var white_map = %World/White
 	tile_size = white_map.tile_set.tile_size
-	modulate_color = map_tile_color_to_color(color)
-	
+	$AnimatedSprite2D.modulate = map_tile_color_to_color(color)
+	$AnimatedSprite2D.animation = "idle"
 
 func _physics_process(delta: float) -> void:
+	# TODO geht nicht
+	#var collision = get_last_slide_collision()
+	#if collision and collision.get_collider() == player:
+		##TODO game over
+		#get_tree().quit()
+	# TODO change to more random
+	var direction: Vector2i = (player.get_current_tile() - get_current_tile()).clampi(-1,1)
+	if direction == Vector2i(0,0):
+		#TODO game over
+		get_tree().quit()
+		
 	velocity = Vector2.ZERO
 	if remaining_move_delay > 0:
 		remaining_move_delay -= delta
 		return
 	if player == null:
 		return
-	# TODO change to more random
-	var direction: Vector2i = (player.get_current_tile() - get_current_tile()).clampi(-1,1)
+
 	if direction.x != 0 and direction.y != 0:
 		if randi_range(0,1) == 0:
 			direction.x = 0

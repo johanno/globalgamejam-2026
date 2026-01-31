@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://6mdjrm773v5g"]
+
+[ext_resource type="Script" uid="uid://sgacg2a4a2n6" path="res://main_menu/scripts/audio_manager.gd" id="1_dnwig"]
+[ext_resource type="AudioStream" uid="uid://2t3lq8staurd" path="res://main_menu/assets/audio/Ludum Dare 30 - 07.ogg" id="2_fke56"]
+[ext_resource type="AudioStream" uid="uid://cdftf0f0a87pp" path="res://main_menu/assets/audio/Modern10.wav" id="3_f2okg"]
+
+[node name="AudioManager" type="Node" unique_id=438453466]
+script = ExtResource("1_dnwig")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=429804994]
+stream = ExtResource("2_fke56")
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=631664696]
+stream = ExtResource("3_f2okg")

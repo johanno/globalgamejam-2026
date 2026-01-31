@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dsdb44efjgqme"]
+[gd_scene format=3 uid="uid://dmvgy7ro83k1a"]
 
 [ext_resource type="Script" uid="uid://b6rgqnxkbfmsn" path="res://scripts/enemy.gd" id="1_epg4t"]
 [ext_resource type="Texture2D" uid="uid://c87ou7x36rvn1" path="res://images/enemy.png" id="1_iifgy"]
@@ -37,9 +37,9 @@ animations = [{
 script = ExtResource("1_epg4t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1049880162]
+modulate = Color(0.11858135, 0.11858139, 0.11858138, 1)
 sprite_frames = SubResource("SpriteFrames_bl1s7")
-animation = &"move"
-frame_progress = 0.39056683
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=620113504]
 scale = Vector2(2.2763925, 2.1891887)
