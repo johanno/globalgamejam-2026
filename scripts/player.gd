@@ -1,19 +1,23 @@
 extends CharacterBody2D
 
 @export var move_delay = 0.25
-var screen_size # Size of the game window.
 var tile_size: Vector2i # Size of one tile
 var remaining_move_delay: float
 
+@export var active_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var tile_map = %WorldTiles
-	print(tile_map)
-	tile_size = tile_map.tile_set.tile_size
-	screen_size = get_viewport_rect().size
+	Global.add_complementary_colors(active_masks)
+
+	var white_map = %World/White
+	print(white_map)
+	tile_size = white_map.tile_set.tile_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	get_parent().update_tile_layers(active_masks)
+
 	velocity = Vector2.ZERO
 
 	if Input.is_action_pressed("quit_game"):
@@ -50,7 +54,6 @@ func _process(delta: float) -> void:
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_v = false
-		# See the note below about the following boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"
@@ -63,13 +66,20 @@ func get_current_tile() -> Vector2i:
 func move_in_direction(direction: Vector2i) -> bool:
 	var current_tile = get_current_tile()
 	var new_tile = current_tile + direction
-	var new_tile_data = %WorldTiles.get_cell_tile_data(new_tile) as TileData
-	if new_tile_data != null and new_tile_data.get_collision_polygons_count(0) > 0:
-		return false
+
+	var has_tile = false
+	for layer in get_parent().get_tile_layers(active_masks):
+		var new_tile_data = layer.get_cell_tile_data(new_tile) as TileData
+		if new_tile_data != null:
+			has_tile = true
+			if new_tile_data.get_collision_polygons_count(0) > 0:
+				return false
+
+	if not has_tile:
+		get_tree().quit()
 
 	var move = direction * tile_size
 	position += Vector2(move.x, move.y)
-	#position = position.clamp(Vector2.ZERO, screen_size)
 	position.x -= fposmod(position.x - tile_size.x / 2.0, tile_size.x)
 	position.y -= fposmod(position.y - tile_size.y / 2.0, tile_size.y)
 	return true
