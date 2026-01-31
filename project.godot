@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MaskPuzzle"
 run/main_scene="uid://hfgsj1sjss64"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -75,3 +75,20 @@ toggle_blue_mask={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="forward_plus"
+
+[xogot]
+
+project/editorState=[{
+"column": 8,
+"current": true,
+"line": 6,
+"path": "res://item.gd",
+"type": "file"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://scripts/player.gd",
+"type": "file"
+}]
+project/breakpoints={}
