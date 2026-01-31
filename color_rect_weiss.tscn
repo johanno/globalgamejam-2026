@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://daq72iod55osb"]
+
+[node name="ColorRect" type="ColorRect" unique_id=1055643278]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.64, 2.2800002)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=325351600]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+border_color = Color(0.30843428, 0.30843428, 0.30843428, 0.627451)
