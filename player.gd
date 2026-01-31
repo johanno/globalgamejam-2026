@@ -6,7 +6,8 @@ var tile_size: Vector2i # Size of one tile
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var tile_map = get_tree().root.get_node("TileScene/TileMapLayer") as TileMapLayer
+	var tile_map = %WorldTiles
+	print(tile_map)
 	tile_size = tile_map.tile_set.tile_size
 	screen_size = get_viewport_rect().size
 
