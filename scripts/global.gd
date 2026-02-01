@@ -9,6 +9,9 @@ var levels: Array[PackedScene] = [
 
 var current_level: int
 
+func load_first_level():
+	get_tree().change_scene_to_packed(levels[0])
+
 func add_complementary_colors(colors: Array[TileColor]) -> Array[TileColor]:
 	var copy = colors.duplicate()
 	if copy.has(TileColor.RED) and copy.has(TileColor.GREEN):

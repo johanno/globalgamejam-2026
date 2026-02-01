@@ -52,12 +52,6 @@ func load_video_settings():
 	var vsync_index = config.get_value("Video", "vsync")
 	DisplayServer.window_set_vsync_mode(vsync_index)
 
-# Scene manager
-func switch_scene(scene_name: StringName, cur_scene: Node):
-	var scene = scenes[scene_map[scene_name]].instantiate()
-	get_tree().root.add_child(scene)
-	cur_scene.queue_free()
-
 func hide_scene(scene):
 	scene.hide()
 
