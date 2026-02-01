@@ -73,6 +73,17 @@ theme = ExtResource("1_0ajpt")
 theme_override_font_sizes/font_size = 24
 text = "Option"
 
+[node name="Credits" type="Button" parent="UI/MainMenu/VBoxContainer" unique_id=915446568]
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Quit")
+theme = ExtResource("1_0ajpt")
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+
 [node name="Quit" type="Button" parent="UI/MainMenu/VBoxContainer" unique_id=1545635513]
 custom_minimum_size = Vector2(100, 32)
 layout_mode = 2
@@ -90,4 +101,5 @@ visible = false
 
 [connection signal="pressed" from="UI/MainMenu/VBoxContainer/Start" to="UI/MainMenu" method="_on_start_pressed"]
 [connection signal="pressed" from="UI/MainMenu/VBoxContainer/Option" to="UI/MainMenu" method="_on_option_pressed"]
+[connection signal="pressed" from="UI/MainMenu/VBoxContainer/Credits" to="UI/MainMenu" method="_on_credits_pressed"]
 [connection signal="pressed" from="UI/MainMenu/VBoxContainer/Quit" to="UI/MainMenu" method="_on_quit_pressed"]

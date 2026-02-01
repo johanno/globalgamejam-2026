@@ -16,6 +16,9 @@ func _on_option_pressed():
 	option_menu.show()
 	option_menu.reset_focus()
 	AudioManager.play_button_sound()
+	
+func _on_credits_pressed():
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit()
