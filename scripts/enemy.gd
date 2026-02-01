@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		return
 	else:
 		show()
-	
+
 	# TODO change to more random
 	var direction: Vector2i = (player.get_current_tile() - get_current_tile()).clampi(-1,1)
 	if direction == Vector2i(0,0):

@@ -25,6 +25,10 @@ Global="*uid://f1sh8w0tkopw"
 Utilities="*uid://iktf8t6roghd"
 AudioManager="*uid://sgacg2a4a2n6"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [global_group]
 
 weiss=""
