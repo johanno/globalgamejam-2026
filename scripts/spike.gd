@@ -6,3 +6,5 @@ func _ready() -> void:
 func check_player(body):
 	if body is Player:
 		body.die()
+	elif body is Box:
+		body.queue_free()

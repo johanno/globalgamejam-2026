@@ -77,7 +77,6 @@ func get_current_tile() -> Vector2i:
 	# Current position is the pixel pos divided by the tile size. -0.5 is added to remove the center offset in the tile of the player
 	return Vector2i(int(position.x / tile_size.x - 0.5), int(position.y / tile_size.y - 0.5))
 
-
 func move_in_direction(direction: Vector2i) -> bool:
 	var player_masks = player.all_active_masks
 	print(direction)

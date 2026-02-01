@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cdgvrxot6yg2c" path="res://scenes/mask_blue.tscn" id="5_qxa03"]
 [ext_resource type="PackedScene" uid="uid://c6j72337vl145" path="res://scenes/mask_green.tscn" id="7_ifni6"]
 [ext_resource type="PackedScene" uid="uid://btrs1ceonxg7w" path="res://scenes/spike.tscn" id="8_coiuk"]
+[ext_resource type="PackedScene" uid="uid://berxsp7pcrnum" path="res://scenes/box.tscn" id="8_tyekv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_coiuk"]
 
@@ -28,7 +29,7 @@ tile_map_data = PackedByteArray("AAADAAIAAAAAAAEAAAADAAMAAAAAAAEAAAA=")
 tile_set = ExtResource("2_coiuk")
 
 [node name="White" type="TileMapLayer" parent="World" unique_id=369929052]
-tile_map_data = PackedByteArray("AAABAAEAAAAAAAMAAAACAAEAAAAAAAMAAAADAAEAAAAAAAMAAAADAAQAAAAAAAMAAAADAAcAAAAAAAMAAAAEAAQAAAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAMAAAACAAEAAAAAAAMAAAADAAEAAAAAAAMAAAADAAQAAAAAAAMAAAADAAcAAAAAAAMAAAAEAAQAAAAAAAMAAAAGAAUAAAAAAAMAAAAGAAYAAAAAAAMAAAAHAAYAAAAAAAMAAAAIAAYAAAAAAAMAAAAIAAcAAAAAAAMAAAAHAAcAAAAAAAMAAAAGAAcAAAAAAAMAAAAGAAgAAAAAAAMAAAAHAAgAAAAAAAMAAAAIAAgAAAAAAAMAAAAJAAgAAAAAAAMAAAAJAAcAAAAAAAMAAAAJAAYAAAAAAAMAAAAJAAUAAAAAAAMAAAAIAAUAAAAAAAMAAAAHAAUAAAAAAAMAAAA=")
 tile_set = ExtResource("2_coiuk")
 
 [node name="Yellow" type="TileMapLayer" parent="World" unique_id=1891298997]
@@ -45,7 +46,7 @@ tile_set = ExtResource("2_coiuk")
 
 [node name="Spike" parent="World/Entities" unique_id=162515309 instance=ExtResource("8_coiuk")]
 material = SubResource("CanvasItemMaterial_coiuk")
-position = Vector2(352, 289)
+position = Vector2(352, 160)
 
 [node name="Exit" parent="World/Entities" unique_id=1044899614 instance=ExtResource("4_c25om")]
 position = Vector2(224, 480)
@@ -58,3 +59,8 @@ position = Vector2(224, 96)
 
 [node name="Mask2" parent="." unique_id=1739144253 instance=ExtResource("7_ifni6")]
 position = Vector2(224, 288)
+
+[node name="Box" parent="." unique_id=1015468619 node_paths=PackedStringArray("player") instance=ExtResource("8_tyekv")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(480, 480)
+player = NodePath("../Player")

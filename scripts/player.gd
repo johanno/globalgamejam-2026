@@ -8,6 +8,7 @@ var remaining_move_delay: float
 var collected_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
 var active_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
 var all_active_masks: Array[Global.TileColor] = [] # Absolut jank
+var last_move_direction: Vector2i = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -96,6 +97,8 @@ func move_in_direction(direction: Vector2i) -> bool:
 
 	if not has_tile:
 		die()
+
+	last_move_direction = direction
 
 	var move = direction * tile_size
 	position += Vector2(move.x, move.y)
