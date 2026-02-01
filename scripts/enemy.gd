@@ -44,8 +44,8 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector2i = (player.get_current_tile() - get_current_tile()).clampi(-1,1)
 	if direction == Vector2i(0,0):
 		#TODO game over
-		get_tree().quit()
-		
+		player.die()
+
 	velocity = Vector2.ZERO
 	if remaining_move_delay > 0:
 		remaining_move_delay -= delta

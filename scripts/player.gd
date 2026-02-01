@@ -95,10 +95,13 @@ func move_in_direction(direction: Vector2i) -> bool:
 				return false
 
 	if not has_tile:
-		get_tree().quit()
+		die()
 
 	var move = direction * tile_size
 	position += Vector2(move.x, move.y)
 	position.x -= fposmod(position.x - tile_size.x / 2.0, tile_size.x)
 	position.y -= fposmod(position.y - tile_size.y / 2.0, tile_size.y)
 	return true
+
+func die():
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

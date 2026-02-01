@@ -5,4 +5,4 @@ func _ready() -> void:
 
 func check_player(body):
 	if body is Player:
-		get_tree().quit()
+		body.die()
