@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var color: Global.TileColor
 var modulate_color: Color = Color("red")
 var tile_size: Vector2 # Size of one tile
-var remaining_move_delay: float
+var remaining_move_delay: float = move_delay
 
 @export var player: Player # Player
 
