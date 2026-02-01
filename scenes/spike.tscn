@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wfyb7nily1rw" path="res://images/spikes.png" id="1_ljd5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a7y0"]
-size = Vector2(64, 64)
+size = Vector2(60, 60)
 
 [node name="Spike" type="Area2D" unique_id=162515309]
 script = ExtResource("1_7a7y0")

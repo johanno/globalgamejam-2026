@@ -14,7 +14,6 @@ var last_move_direction: Vector2i = Vector2.ZERO
 func _ready() -> void:
 	var white_map = %World/White
 	tile_size = Vector2(white_map.tile_set.tile_size) * white_map.scale
-	print(tile_size)
 
 func toggle_mask(mask: Global.TileColor):
 	if not collected_masks.has(mask):

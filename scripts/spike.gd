@@ -16,5 +16,10 @@ func _physics_process(delta: float) -> void:
 	for body in get_overlapping_bodies():
 		if body is Player:
 			body.die()
-		elif body is Box:
-			body.queue_free()
+			return
+
+	for body in get_overlapping_areas():
+		if body is Box:
+			if body.color in player.all_active_masks:
+				queue_free()
+				body.queue_free()

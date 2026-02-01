@@ -2,21 +2,29 @@ class_name Box
 extends Area2D
 
 @export var player: Player
+@export var color: Global.TileColor
 var tile_size: Vector2 # Size of one tile
 
 func _ready() -> void:
 	var white_map = %World/White
 	tile_size = Vector2(white_map.tile_set.tile_size) * white_map.scale
 
-	self.body_entered.connect(check_player)
+	$Sprite.modulate = Global.map_tile_color_to_color(color)
 
-func check_player(body):
-	if body is Player:
-		# Push box
-		if not move_in_direction(body.last_move_direction):
-			# Absoluter jank-Code, das sollte gleich beim Player Move abgefangen werden
-			player.move_in_direction(-player.last_move_direction)
-		pass
+func _physics_process(delta: float) -> void:
+	if color not in player.all_active_masks:
+		hide()
+		return
+	else:
+		show()
+
+	for body in get_overlapping_bodies():
+		if body is Player:
+			# Push box
+			if not move_in_direction(body.last_move_direction):
+				# Absoluter jank-Code, das sollte gleich beim Player Move abgefangen werden
+				player.move_in_direction(-player.last_move_direction)
+				player.last_move_direction = Vector2i.ZERO
 
 func get_current_tile() -> Vector2i:
 	# Current position is the pixel pos divided by the tile size. -0.5 is added to remove the center offset in the tile of the player

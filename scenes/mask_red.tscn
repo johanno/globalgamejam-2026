@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cvm1yjd8x3724" path="res://images/mask_red.png" id="2_dcrn1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coiuk"]
-size = Vector2(64, 64)
+size = Vector2(62, 62)
 
 [node name="Mask" type="Area2D" unique_id=909963934]
 script = ExtResource("1_dcrn1")

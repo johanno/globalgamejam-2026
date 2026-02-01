@@ -24,7 +24,7 @@ tile_map_data = PackedByteArray("AAAGAAYAAAAAAAIAAAAFAAwAAAAAAAIAAAAGAAUAAAAAAAI
 tile_set = ExtResource("2_5cjb5")
 
 [node name="Green" type="TileMapLayer" parent="World" unique_id=208363271]
-tile_map_data = PackedByteArray("AAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAEAAwAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAYAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAEAAwAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAYAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAA=")
 tile_set = ExtResource("2_5cjb5")
 
 [node name="Blue" type="TileMapLayer" parent="World" unique_id=919658176]
@@ -39,6 +39,7 @@ tile_set = ExtResource("2_5cjb5")
 tile_set = ExtResource("2_5cjb5")
 
 [node name="Cyan" type="TileMapLayer" parent="World" unique_id=1116218163]
+modulate = Color(0, 0.68802136, 0.6880214, 1)
 tile_set = ExtResource("2_5cjb5")
 
 [node name="Magenta" type="TileMapLayer" parent="World" unique_id=997281400]
@@ -52,6 +53,7 @@ position = Vector2(32, 736)
 [node name="Box" parent="World/Entities" unique_id=1720749667 node_paths=PackedStringArray("player") instance=ExtResource("8_5cjb5")]
 position = Vector2(160, 416)
 player = NodePath("../../../Player")
+color = 3
 
 [node name="Mask2" parent="World/Entities" unique_id=428735284 instance=ExtResource("9_q6sfj")]
 position = Vector2(736, 416)
@@ -67,19 +69,31 @@ position = Vector2(416, 544)
 player = NodePath("../../../Player")
 color = 1
 
-[node name="Spike2" parent="World/Entities" unique_id=1314815333 node_paths=PackedStringArray("player") instance=ExtResource("11_5tkub")]
-position = Vector2(416, 544)
-player = NodePath("../../../Player")
-color = 2
-
 [node name="Enemy" parent="World/Entities" unique_id=1253163092 node_paths=PackedStringArray("player") instance=ExtResource("4_0wxwt")]
 position = Vector2(575.77856, 1018.6851)
 color = 4
 player = NodePath("../../../Player")
 
+[node name="Box2" parent="World/Entities" unique_id=1194298591 node_paths=PackedStringArray("player") instance=ExtResource("8_5cjb5")]
+position = Vector2(672, 288)
+player = NodePath("../../../Player")
+color = 1
+
+[node name="Spike2" parent="World/Entities" unique_id=1656424665 node_paths=PackedStringArray("player") instance=ExtResource("11_5tkub")]
+position = Vector2(415.71426, 608.5714)
+scale = Vector2(0.99999994, 0.99999994)
+player = NodePath("../../../Player")
+color = 2
+
 [node name="Player" parent="." unique_id=1723262677 instance=ExtResource("6_jvphm")]
 position = Vector2(96, 96)
 
 [node name="Ui" parent="." unique_id=1244219755 node_paths=PackedStringArray("player") instance=ExtResource("7_g1xgd")]
+offset_left = -4.285714
+offset_top = 7.1428566
+offset_right = 1147.7142
+offset_bottom = 655.1429
+grow_horizontal = 1
+grow_vertical = 1
 scale = Vector2(1.429, 1.429)
 player = NodePath("../Player")
