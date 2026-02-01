@@ -26,7 +26,7 @@ func toggle_mask(mask: Global.TileColor):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_parent().update_tile_layers(all_active_masks)
+	%World.get_parent().update_tile_layers(all_active_masks)
 
 	velocity = Vector2.ZERO
 
@@ -88,7 +88,7 @@ func move_in_direction(direction: Vector2i) -> bool:
 	var new_tile = current_tile + direction
 
 	var has_tile = false
-	for layer in get_parent().get_tile_layers(all_active_masks):
+	for layer in %World.get_parent().get_tile_layers(all_active_masks):
 		var new_tile_data = layer.get_cell_tile_data(new_tile) as TileData
 		if new_tile_data != null:
 			has_tile = true

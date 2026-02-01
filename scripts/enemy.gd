@@ -8,30 +8,11 @@ var remaining_move_delay: float
 
 @export var player: Player # Player
 
-func map_tile_color_to_color(tileColor: Global.TileColor) -> Color:
-	match tileColor:
-		Global.TileColor.RED:
-			return Color("red")
-		Global.TileColor.GREEN:
-			return Color("green")
-		Global.TileColor.BLUE:
-			return Color("blue")
-		Global.TileColor.YELLOW:
-			return Color("yellow")
-		Global.TileColor.CYAN:
-			return Color("cyan")
-		Global.TileColor.MAGENTA:
-			return Color("magenta")
-		Global.TileColor.WHITE:
-			return Color("lightGray")
-	return Color("lightGray")
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var white_map = %World/White
 	tile_size = white_map.tile_set.tile_size
-	$AnimatedSprite2D.modulate = map_tile_color_to_color(color)
+	$AnimatedSprite2D.modulate = Global.map_tile_color_to_color(color)
 	$AnimatedSprite2D.animation = "idle"
 
 func _physics_process(delta: float) -> void:
@@ -85,7 +66,7 @@ func move_in_direction(direction: Vector2i) -> bool:
 	var player_masks = player.all_active_masks
 	var current_tile = get_current_tile()
 	var new_tile = current_tile + direction
-	var all_layers: Array[TileMapLayer] = get_parent().get_tile_layers(player_masks)
+	var all_layers: Array[TileMapLayer] = %World.get_parent().get_tile_layers(player_masks)
 	if all_layers.is_empty():
 		return false
 	var has_tile = false
