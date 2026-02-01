@@ -25,6 +25,24 @@ func add_complementary_colors(colors: Array[TileColor]) -> Array[TileColor]:
 
 	return copy
 
+func map_tile_color_to_color(tileColor: Global.TileColor) -> Color:
+	match tileColor:
+		Global.TileColor.RED:
+			return Color("red")
+		Global.TileColor.GREEN:
+			return Color("green")
+		Global.TileColor.BLUE:
+			return Color("blue")
+		Global.TileColor.YELLOW:
+			return Color("yellow")
+		Global.TileColor.CYAN:
+			return Color("cyan")
+		Global.TileColor.MAGENTA:
+			return Color("magenta")
+		Global.TileColor.WHITE:
+			return Color("lightGray")
+	return Color("lightGray")
+
 func try_again():
 	get_tree().change_scene_to_packed(levels[current_level])
 

@@ -26,7 +26,7 @@ func move_in_direction(direction: Vector2i) -> bool:
 	var player_masks = player.all_active_masks
 	var current_tile = get_current_tile()
 	var new_tile = current_tile + direction
-	var all_layers: Array[TileMapLayer] = get_parent().get_tile_layers(player_masks)
+	var all_layers: Array[TileMapLayer] = %World.get_parent().get_tile_layers(player_masks)
 	if all_layers.is_empty():
 		return false
 	var has_tile = false
