@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var move_delay = 0.25
-var tile_size: Vector2i # Size of one tile
+var tile_size: Vector2 # Size of one tile
 var remaining_move_delay: float = move_delay
 
 var collected_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
@@ -13,7 +13,8 @@ var last_move_direction: Vector2i = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var white_map = %World/White
-	tile_size = white_map.tile_set.tile_size
+	tile_size = Vector2(white_map.tile_set.tile_size) * white_map.scale
+	print(tile_size)
 
 func toggle_mask(mask: Global.TileColor):
 	if not collected_masks.has(mask):
@@ -108,8 +109,8 @@ func move_in_direction(direction: Vector2i) -> bool:
 
 	last_move_direction = direction
 
-	var move = direction * tile_size
-	position += Vector2(move.x, move.y)
+	var move = Vector2(direction) * tile_size
+	position += Vector2(move)
 	position.x -= fposmod(position.x - tile_size.x / 2.0, tile_size.x)
 	position.y -= fposmod(position.y - tile_size.y / 2.0, tile_size.y)
 	return true

@@ -2,11 +2,11 @@ class_name Box
 extends Area2D
 
 @export var player: Player
-var tile_size: Vector2i # Size of one tile
+var tile_size: Vector2 # Size of one tile
 
 func _ready() -> void:
 	var white_map = %World/White
-	tile_size = white_map.tile_set.tile_size
+	tile_size = Vector2(white_map.tile_set.tile_size) * white_map.scale
 
 	self.body_entered.connect(check_player)
 
@@ -40,7 +40,7 @@ func move_in_direction(direction: Vector2i) -> bool:
 	if not has_tile:
 		return false
 
-	var move = direction * tile_size
+	var move = Vector2(direction) * tile_size
 	position += Vector2(move.x, move.y)
 	position.x -= fposmod(position.x - tile_size.x / 2.0, tile_size.x)
 	position.y -= fposmod(position.y - tile_size.y / 2.0, tile_size.y)

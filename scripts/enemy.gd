@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var move_delay: float = 2.0
 @export var color: Global.TileColor
 var modulate_color: Color = Color("red")
-var tile_size: Vector2i # Size of one tile
+var tile_size: Vector2 # Size of one tile
 var remaining_move_delay: float
 
 @export var player: Player # Player
@@ -11,7 +11,7 @@ var remaining_move_delay: float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var white_map = %World/White
-	tile_size = white_map.tile_set.tile_size
+	tile_size = Vector2(white_map.tile_set.tile_size) * white_map.scale
 	$AnimatedSprite2D.modulate = Global.map_tile_color_to_color(color)
 	$AnimatedSprite2D.animation = "idle"
 
@@ -77,7 +77,7 @@ func move_in_direction(direction: Vector2i) -> bool:
 	if not has_tile:
 		return false
 
-	var move = direction * tile_size
+	var move = Vector2(direction) * tile_size
 	position += Vector2(move.x, move.y)
 	position.x -= fposmod(position.x - tile_size.x / 2.0, tile_size.x)
 	position.y -= fposmod(position.y - tile_size.y / 2.0, tile_size.y)

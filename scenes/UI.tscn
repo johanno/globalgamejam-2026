@@ -19,8 +19,8 @@ script = ExtResource("1_ua6yw")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=634415531]
 layout_mode = 0
-offset_right = 1200.0
-offset_bottom = 1200.0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=879198707]
 layout_mode = 2

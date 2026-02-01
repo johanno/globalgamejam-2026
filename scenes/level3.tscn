@@ -37,16 +37,18 @@ tile_set = ExtResource("2_5mhml")
 [node name="Magenta" type="TileMapLayer" parent="World" unique_id=997281400]
 tile_set = ExtResource("2_5mhml")
 
-[node name="Mask" parent="." unique_id=909963934 instance=ExtResource("6_qewby")]
+[node name="Entities" type="Node2D" parent="World" unique_id=1317727070]
+
+[node name="Mask" parent="World/Entities" unique_id=909963934 instance=ExtResource("6_qewby")]
 position = Vector2(288, 159)
 
-[node name="Enemy" parent="." unique_id=1253163092 node_paths=PackedStringArray("player") instance=ExtResource("7_bradm")]
+[node name="Enemy" parent="World/Entities" unique_id=1253163092 node_paths=PackedStringArray("player") instance=ExtResource("7_bradm")]
 position = Vector2(224, 544)
 move_delay = 1.0
 color = 1
-player = NodePath("../Player")
+player = NodePath("../../../Player")
 
-[node name="Exit" parent="." unique_id=162515309 instance=ExtResource("8_5mhml")]
+[node name="Exit" parent="World/Entities" unique_id=162515309 instance=ExtResource("8_5mhml")]
 position = Vector2(288, 544)
 
 [node name="Player" parent="." unique_id=1723262677 instance=ExtResource("6_6lxtr")]
