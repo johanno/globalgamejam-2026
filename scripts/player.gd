@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var move_delay = 0.25
 var tile_size: Vector2i # Size of one tile
-var remaining_move_delay: float
+var remaining_move_delay: float = move_delay
 
 var collected_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
 var active_masks: Array[Global.TileColor] = [Global.TileColor.WHITE]
