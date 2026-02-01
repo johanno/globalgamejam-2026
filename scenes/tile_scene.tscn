@@ -47,7 +47,7 @@ tile_set = ExtResource("2_coiuk")
 material = SubResource("CanvasItemMaterial_coiuk")
 position = Vector2(352, 289)
 
-[node name="Spike" parent="World" unique_id=1044899614 instance=ExtResource("4_c25om")]
+[node name="Exit" parent="World/Entities" unique_id=1044899614 instance=ExtResource("4_c25om")]
 position = Vector2(224, 480)
 
 [node name="Player" parent="." unique_id=1723262677 instance=ExtResource("4_7aoxt")]

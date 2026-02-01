@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	if direction.x != 0 and direction.y != 0:
 		if randi_range(0,1) == 0:
 			direction.x = 0
-		else: 
+		else:
 			direction.y = 0
 	var moved = move_in_direction(direction)
 

@@ -31,5 +31,5 @@ func next_level():
 		# GG
 		get_tree().quit()
 		return
-	
+
 	get_tree().change_scene_to_packed(levels[current_level])
