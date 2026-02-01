@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector2i = (player.get_current_tile() - get_current_tile()).clampi(-1,1)
 	if direction == Vector2i(0,0):
 		player.die()
-
+		
 	velocity = Vector2.ZERO
 	if remaining_move_delay > 0:
 		remaining_move_delay -= delta
@@ -53,10 +53,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.stop()
 
-	if velocity.x != 0 or velocity.y != 0:
-		$AnimatedSprite2D.animation = "move"
-	else:
-		$AnimatedSprite2D.animation = "idle"
+
 
 func get_current_tile() -> Vector2i:
 	# Current position is the pixel pos divided by the tile size. -0.5 is added to remove the center offset in the tile of the player

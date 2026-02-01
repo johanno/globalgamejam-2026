@@ -13,21 +13,16 @@ animations = [{
 "texture": ExtResource("1_iifgy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_epg4t")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("3_3yqyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_epg4t")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_wujgv")
 }],
 "loop": true,
-"name": &"move",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -40,6 +35,7 @@ script = ExtResource("1_epg4t")
 modulate = Color(0.11858135, 0.11858139, 0.11858138, 1)
 sprite_frames = SubResource("SpriteFrames_bl1s7")
 animation = &"idle"
+frame_progress = 0.3073301
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=620113504]
 scale = Vector2(2.2763925, 2.1891887)

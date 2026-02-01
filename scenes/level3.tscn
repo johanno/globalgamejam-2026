@@ -53,4 +53,9 @@ position = Vector2(288, 544)
 position = Vector2(96, 96)
 
 [node name="Ui" parent="." unique_id=1244219755 node_paths=PackedStringArray("player") instance=ExtResource("7_b72m1")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
 player = NodePath("../Player")
