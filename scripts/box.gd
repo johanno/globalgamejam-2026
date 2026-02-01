@@ -15,7 +15,7 @@ func check_player(body):
 		# Push box
 		if not move_in_direction(body.last_move_direction):
 			# Absoluter jank-Code, das sollte gleich beim Player Move abgefangen werden
-			player.move_in_direction(-player.last_move_directiondd)
+			player.move_in_direction(-player.last_move_direction)
 		pass
 
 func get_current_tile() -> Vector2i:
@@ -24,12 +24,9 @@ func get_current_tile() -> Vector2i:
 
 func move_in_direction(direction: Vector2i) -> bool:
 	var player_masks = player.all_active_masks
-	print(direction)
 	var current_tile = get_current_tile()
 	var new_tile = current_tile + direction
 	var all_layers: Array[TileMapLayer] = get_parent().get_tile_layers(player_masks)
-	print(all_layers)
-	print(player_masks)
 	if all_layers.is_empty():
 		return false
 	var has_tile = false
