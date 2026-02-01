@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cdlayd7y7q7ue" path="res://icon_upside_down.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://kwnf7ao7lnmo" path="res://icon.svg" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://cvm1yjd8x3724" path="res://images/mask_red.png" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://fqav7llh4kdq" path="res://images/mask_green.png" id="5_fjrip"]
+[ext_resource type="Texture2D" uid="uid://cas2ym5heefc4" path="res://images/mask_blue.png" id="6_smehm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_246ao"]
 animations = [{
@@ -37,3 +40,21 @@ animation = &"walk"
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=654801228]
 shape = SubResource("RectangleShape2D_exm5h")
+
+[node name="MaskRed" type="Sprite2D" parent="." unique_id=131889816]
+visible = false
+position = Vector2(1, 0.99999994)
+scale = Vector2(1.3807334, 1.5564516)
+texture = ExtResource("4_tuyoq")
+
+[node name="MaskGreen" type="Sprite2D" parent="." unique_id=1808601253]
+visible = false
+position = Vector2(0, 1)
+scale = Vector2(1.1162874, 1.1110623)
+texture = ExtResource("5_fjrip")
+
+[node name="MaskBlue" type="Sprite2D" parent="." unique_id=1074693155]
+visible = false
+position = Vector2(0, -1)
+scale = Vector2(1.3137931, 1.0858258)
+texture = ExtResource("6_smehm")

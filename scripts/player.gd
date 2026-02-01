@@ -23,6 +23,9 @@ func toggle_mask(mask: Global.TileColor):
 		active_masks.erase(mask)
 	else:
 		active_masks.append(mask)
+	$MaskRed.visible = active_masks.has(Global.TileColor.RED)
+	$MaskGreen.visible = active_masks.has(Global.TileColor.GREEN)
+	$MaskBlue.visible = active_masks.has(Global.TileColor.BLUE)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
