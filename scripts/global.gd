@@ -51,7 +51,7 @@ func next_level():
 	current_level += 1
 	if current_level >= len(levels):
 		# GG
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 		return
 
 	get_tree().change_scene_to_packed(levels[current_level])

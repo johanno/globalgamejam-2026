@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	velocity = Vector2.ZERO
 
 	if Input.is_action_pressed("quit_game"):
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 		return
 
 	if Input.is_action_just_pressed("try_again"):
