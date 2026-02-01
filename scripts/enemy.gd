@@ -38,12 +38,16 @@ func _physics_process(delta: float) -> void:
 	# TODO geht nicht
 	#var collision = get_last_slide_collision()
 	#if collision and collision.get_collider() == player:
-		##TODO game over
-		#get_tree().quit()
+	#	player.die()
+	if color not in player.all_active_masks:
+		hide()
+		return
+	else:
+		show()
+	
 	# TODO change to more random
 	var direction: Vector2i = (player.get_current_tile() - get_current_tile()).clampi(-1,1)
 	if direction == Vector2i(0,0):
-		#TODO game over
 		player.die()
 
 	velocity = Vector2.ZERO
@@ -79,12 +83,9 @@ func get_current_tile() -> Vector2i:
 
 func move_in_direction(direction: Vector2i) -> bool:
 	var player_masks = player.all_active_masks
-	print(direction)
 	var current_tile = get_current_tile()
 	var new_tile = current_tile + direction
 	var all_layers: Array[TileMapLayer] = get_parent().get_tile_layers(player_masks)
-	print(all_layers)
-	print(player_masks)
 	if all_layers.is_empty():
 		return false
 	var has_tile = false
