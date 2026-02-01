@@ -3,10 +3,10 @@ extends Node
 enum TileColor { WHITE, RED, GREEN, BLUE, YELLOW, CYAN, MAGENTA }
 
 var levels: Array[PackedScene] = [
-	preload("res://scenes/level4.tscn"),
 	preload("res://scenes/level1.tscn"),
 	preload("res://scenes/level2.tscn"),
 	preload("res://scenes/level3.tscn"),
+	preload("res://scenes/level4.tscn"),
 ]
 
 var current_level: int
