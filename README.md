@@ -6,9 +6,4 @@ Credits:
 \[Simple Concept Template: Main Menu] https://godotengine.org/asset-library/asset/2578
 
 
-
-<<<<<<< HEAD
 \["Super Polka" Kevin MacLeod (incompetech.com)] ISRC: USUAN1100056
-=======
-\["Super Polka" Kevin MacLeod (incompetech.com)] ISRC: USUAN1100056 
->>>>>>> 8b5ffc0 (menu)
