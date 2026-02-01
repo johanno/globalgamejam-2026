@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://dgu5y015ac2st"]
+
+[ext_resource type="Script" uid="uid://jt0y3oc26j0a" path="res://scenes/button_main_menu.gd" id="1_lynnb"]
+[ext_resource type="Texture2D" uid="uid://cas2ym5heefc4" path="res://images/mask_blue.png" id="2_3tf7q"]
+[ext_resource type="Texture2D" uid="uid://fqav7llh4kdq" path="res://images/mask_green.png" id="3_wsj37"]
+[ext_resource type="Texture2D" uid="uid://cvm1yjd8x3724" path="res://images/mask_red.png" id="4_udqdx"]
+[ext_resource type="Texture2D" uid="uid://ckhpps5pw0uv7" path="res://images/green.png" id="5_vjp7t"]
+[ext_resource type="Texture2D" uid="uid://bp4vdoi5iqy5x" path="res://images/red.png" id="6_l81e3"]
+[ext_resource type="Texture2D" uid="uid://2t50ajtbytmm" path="res://images/blue.png" id="7_4tn0k"]
+
+[node name="GameWin" type="Control" unique_id=108696043]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1383394353]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1693564828]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1414308168]
+layout_mode = 2
+alignment = 1
+
+[node name="Win" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=827476006]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "You have Won!"
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1929503164]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "To Main Menu"
+script = ExtResource("1_lynnb")
+
+[node name="MaskBlue" type="Sprite2D" parent="." unique_id=710484895]
+position = Vector2(777, 211)
+texture = ExtResource("2_3tf7q")
+
+[node name="MaskGreen" type="Sprite2D" parent="." unique_id=182712964]
+position = Vector2(577, 144)
+texture = ExtResource("3_wsj37")
+
+[node name="MaskRed" type="Sprite2D" parent="." unique_id=439142029]
+position = Vector2(366, 202)
+texture = ExtResource("4_udqdx")
+
+[node name="Green" type="Sprite2D" parent="." unique_id=651762493]
+position = Vector2(202, 459)
+texture = ExtResource("5_vjp7t")
+
+[node name="Green2" type="Sprite2D" parent="." unique_id=1884694645]
+position = Vector2(227, 520)
+texture = ExtResource("5_vjp7t")
+
+[node name="Green3" type="Sprite2D" parent="." unique_id=904093686]
+position = Vector2(257, 576)
+texture = ExtResource("5_vjp7t")
+
+[node name="Green4" type="Sprite2D" parent="." unique_id=888193518]
+position = Vector2(311, 504)
+texture = ExtResource("5_vjp7t")
+
+[node name="Green5" type="Sprite2D" parent="." unique_id=1237823576]
+position = Vector2(354, 449)
+texture = ExtResource("5_vjp7t")
+
+[node name="Green6" type="Sprite2D" parent="." unique_id=71957572]
+position = Vector2(388, 516)
+texture = ExtResource("5_vjp7t")
+
+[node name="Green7" type="Sprite2D" parent="." unique_id=1902079502]
+position = Vector2(425, 577)
+texture = ExtResource("5_vjp7t")
+
+[node name="Green8" type="Sprite2D" parent="." unique_id=640506602]
+position = Vector2(464, 525)
+texture = ExtResource("5_vjp7t")
+
+[node name="Green9" type="Sprite2D" parent="." unique_id=330530477]
+position = Vector2(488, 465)
+texture = ExtResource("5_vjp7t")
+
+[node name="Red" type="Sprite2D" parent="." unique_id=914610944]
+position = Vector2(615, 605)
+texture = ExtResource("6_l81e3")
+
+[node name="Red2" type="Sprite2D" parent="." unique_id=1815484675]
+position = Vector2(610, 539)
+texture = ExtResource("6_l81e3")
+
+[node name="Red3" type="Sprite2D" parent="." unique_id=508834323]
+position = Vector2(622, 441)
+texture = ExtResource("6_l81e3")
+
+[node name="Blue" type="Sprite2D" parent="." unique_id=77487890]
+position = Vector2(802, 609)
+texture = ExtResource("7_4tn0k")
+
+[node name="Blue2" type="Sprite2D" parent="." unique_id=2125257478]
+position = Vector2(799, 532)
+texture = ExtResource("7_4tn0k")
+
+[node name="Blue3" type="Sprite2D" parent="." unique_id=992176408]
+position = Vector2(795, 463)
+texture = ExtResource("7_4tn0k")
+
+[node name="Blue4" type="Sprite2D" parent="." unique_id=1392164428]
+position = Vector2(880, 523)
+texture = ExtResource("7_4tn0k")
+
+[node name="Blue5" type="Sprite2D" parent="." unique_id=1224530662]
+position = Vector2(937, 571)
+texture = ExtResource("7_4tn0k")
+
+[node name="Blue6" type="Sprite2D" parent="." unique_id=1950513334]
+position = Vector2(1012, 593)
+texture = ExtResource("7_4tn0k")
+
+[node name="Blue7" type="Sprite2D" parent="." unique_id=282121643]
+position = Vector2(1013, 539)
+texture = ExtResource("7_4tn0k")
+
+[node name="Blue8" type="Sprite2D" parent="." unique_id=2067940321]
+position = Vector2(1014, 476)
+texture = ExtResource("7_4tn0k")

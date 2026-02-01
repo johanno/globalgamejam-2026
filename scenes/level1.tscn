@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dit23ptcb8os2" path="res://scripts/world.gd" id="1_bbk5w"]
 [ext_resource type="TileSet" uid="uid://dsb5rh7cyoisp" path="res://all_tiles.tres" id="2_conm7"]
+[ext_resource type="Texture2D" uid="uid://dkgn3ycon5ayg" path="res://images/red_arrow.png" id="3_conm7"]
 [ext_resource type="PackedScene" uid="uid://bu7dan5fpgvs5" path="res://scenes/exit.tscn" id="3_d3jkd"]
+[ext_resource type="Script" uid="uid://cu3pmukqfidbp" path="res://scenes/red_arrow.gd" id="4_d3jkd"]
 [ext_resource type="PackedScene" uid="uid://cdgvrxot6yg2c" path="res://scenes/mask_blue.tscn" id="4_u3awl"]
 [ext_resource type="PackedScene" uid="uid://c6j72337vl145" path="res://scenes/mask_green.tscn" id="5_2ku1j"]
 [ext_resource type="PackedScene" uid="uid://badwwdavjnjns" path="res://scenes/player.tscn" id="7_gnai3"]
@@ -39,6 +41,14 @@ tile_set = ExtResource("2_conm7")
 tile_set = ExtResource("2_conm7")
 
 [node name="Entities" type="Node2D" parent="World" unique_id=403681453]
+
+[node name="RedArrow" type="Sprite2D" parent="World/Entities" unique_id=4234763 node_paths=PackedStringArray("mask")]
+visible = false
+position = Vector2(667, 293)
+scale = Vector2(2.1066532, 1.8969239)
+texture = ExtResource("3_conm7")
+script = ExtResource("4_d3jkd")
+mask = NodePath("../Mask")
 
 [node name="Exit" parent="World/Entities" unique_id=1044899614 instance=ExtResource("3_d3jkd")]
 position = Vector2(224, 480)
