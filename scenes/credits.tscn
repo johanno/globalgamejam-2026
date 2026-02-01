@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://d2ba2bfyrn3br"]
+
+[ext_resource type="Script" uid="uid://casmvwjuqdwbi" path="res://scripts/credits.gd" id="1_0bpdh"]
+
+[node name="Credits" type="Control" unique_id=1129365574]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=980308632]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1237567659]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1491479318]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=219557035]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1867329968]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Team"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1461574202]
+layout_mode = 2
+text = "Peak programmer art - Johanno
+Buggy code - Johanno & Mr
+Overcomplicated level design - Setry
+Annoying enemy placement - Johanno & Mr
+
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1120728929]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "External Resources"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1401795681]
+layout_mode = 2
+text = "Simple Concept Template: Main Menu: https://godotengine.org/asset-library/asset/2578
+\"Super Polka\" Kevin MacLeod (incompetech.com): ISRC: USUAN1100056
+
+"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=926419636]
+layout_mode = 2
+text = "Back"
+script = ExtResource("1_0bpdh")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Button" method="go_back"]
