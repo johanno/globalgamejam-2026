@@ -12,6 +12,7 @@ var levels: Array[PackedScene] = [
 var current_level: int
 
 func load_first_level():
+	current_level = 0
 	get_tree().change_scene_to_packed(levels[0])
 
 func add_complementary_colors(colors: Array[TileColor]) -> Array[TileColor]:
