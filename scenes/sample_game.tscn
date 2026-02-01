@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn4sis57vp3si"]
+[gd_scene format=3 uid="uid://cn4sis57vp3si"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_clim0"]
-[ext_resource type="Script" path="res://scripts/sample_game.gd" id="1_omkqs"]
+[ext_resource type="Script" uid="uid://ckfnqinq8aux7" path="res://scripts/player.gd" id="1_clim0"]
+[ext_resource type="Script" uid="uid://c0bd6mkinu7d7" path="res://scripts/sample_game.gd" id="1_omkqs"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="2_nwagm"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/settings.tscn" id="4_y4cq8"]
 

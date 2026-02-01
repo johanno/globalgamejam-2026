@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://603k3vy4p3f1"]
 
-[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://main_menu/assets/MinimalUI/MinimalUI.tres" id="1_8vxdm"]
-[ext_resource type="Script" uid="uid://srbqj1jdchfe" path="res://main_menu/scripts/settings.gd" id="2_48ou5"]
-[ext_resource type="Script" uid="uid://b7fjtphi5eorl" path="res://main_menu/scripts/video.gd" id="2_u8ap5"]
-[ext_resource type="Script" uid="uid://bkhbi2oxqgq0x" path="res://main_menu/scripts/audio.gd" id="3_t3cm1"]
-[ext_resource type="PackedScene" uid="uid://v37pld2ul4n6" path="res://main_menu/scenes/action_button.tscn" id="4_qu75p"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_8vxdm"]
+[ext_resource type="Script" uid="uid://srbqj1jdchfe" path="res://scripts/settings.gd" id="2_48ou5"]
+[ext_resource type="Script" uid="uid://b7fjtphi5eorl" path="res://scripts/video.gd" id="2_u8ap5"]
+[ext_resource type="Script" uid="uid://bkhbi2oxqgq0x" path="res://scripts/audio.gd" id="3_t3cm1"]
+[ext_resource type="PackedScene" uid="uid://v37pld2ul4n6" path="res://scenes/action_button.tscn" id="4_qu75p"]
 
 [node name="Settings" type="TabContainer" unique_id=22028673]
 anchors_preset = 15

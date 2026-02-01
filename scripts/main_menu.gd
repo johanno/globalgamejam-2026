@@ -9,8 +9,8 @@ func reset_focus():
 	$VBoxContainer/Start.grab_focus()
 
 func _on_start_pressed():
-	Global.load_first_level()
 	AudioManager.play_music_sound()
+	Global.load_first_level()
 
 func _on_option_pressed():
 	option_menu.show()

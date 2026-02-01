@@ -1,9 +1,11 @@
 extends Node
 
-@export var music_player: AudioStreamPlayer #= $MusicPlayer
-@export var sound_player: AudioStreamPlayer #= $SoundPlayer
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var sound_player: AudioStreamPlayer = $SoundPlayer
 
 func _ready():
+	print("HEEEELOOOOOOOOOOOOO!!!!!!")
+	print($MusicPlayer)
 	pass # Replace with function body.
 
 func play_button_sound():
