@@ -37,6 +37,24 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
+[node name="GiveUpContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer" unique_id=1167273906]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer/GiveUpContainer" unique_id=469888263]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Try
+again"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer/GiveUpContainer" unique_id=121234793]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Q"
+horizontal_alignment = 1
+
 [node name="RedContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer" unique_id=1950136772]
 unique_name_in_owner = true
 layout_mode = 2

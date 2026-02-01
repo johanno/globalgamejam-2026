@@ -32,6 +32,11 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_pressed("quit_game"):
 		get_tree().quit()
+		return
+
+	if Input.is_action_just_pressed("try_again"):
+		Global.try_again()
+		return
 
 	if Input.is_action_just_pressed("toggle_red_mask"):
 		toggle_mask(Global.TileColor.RED)

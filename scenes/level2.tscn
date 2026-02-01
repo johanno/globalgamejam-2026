@@ -1,0 +1,56 @@
+[gd_scene format=4 uid="uid://c384j5uf0igdr"]
+
+[ext_resource type="Script" uid="uid://dit23ptcb8os2" path="res://scripts/world.gd" id="1_6ep0u"]
+[ext_resource type="TileSet" uid="uid://dsb5rh7cyoisp" path="res://all_tiles.tres" id="2_hrcei"]
+[ext_resource type="PackedScene" uid="uid://bu7dan5fpgvs5" path="res://scenes/exit.tscn" id="3_xa7n4"]
+[ext_resource type="PackedScene" uid="uid://cdgvrxot6yg2c" path="res://scenes/mask_blue.tscn" id="4_bo4dx"]
+[ext_resource type="PackedScene" uid="uid://c6j72337vl145" path="res://scenes/mask_green.tscn" id="5_76toy"]
+[ext_resource type="PackedScene" uid="uid://badwwdavjnjns" path="res://scenes/player.tscn" id="6_8g4ke"]
+[ext_resource type="PackedScene" uid="uid://clecbvtpi7obo" path="res://scenes/UI.tscn" id="7_56gwk"]
+
+[node name="TileScene" type="Node2D" unique_id=967353875]
+script = ExtResource("1_6ep0u")
+
+[node name="World" type="Node2D" parent="." unique_id=929708630]
+unique_name_in_owner = true
+
+[node name="Red" type="TileMapLayer" parent="World" unique_id=391483729]
+tile_set = ExtResource("2_hrcei")
+
+[node name="Green" type="TileMapLayer" parent="World" unique_id=969362466]
+tile_map_data = PackedByteArray("AAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAA=")
+tile_set = ExtResource("2_hrcei")
+
+[node name="Blue" type="TileMapLayer" parent="World" unique_id=795817262]
+tile_map_data = PackedByteArray("AAADAAIAAAAAAAEAAAADAAMAAAAAAAEAAAA=")
+tile_set = ExtResource("2_hrcei")
+
+[node name="White" type="TileMapLayer" parent="World" unique_id=369929052]
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAMAAAACAAEAAAAAAAMAAAADAAEAAAAAAAMAAAADAAQAAAAAAAMAAAADAAcAAAAAAAMAAAAEAAQAAAABAAMAAAAEAAAAAAABAAMAAAADAAAAAAABAAMAAAACAAAAAAABAAMAAAABAAAAAAABAAMAAAAAAAAAAAABAAMAAAAAAAEAAAABAAMAAAAAAAIAAAABAAMAAAABAAIAAAABAAMAAAACAAIAAAABAAMAAAACAAMAAAABAAMAAAACAAQAAAABAAMAAAACAAUAAAABAAMAAAACAAYAAAABAAMAAAACAAcAAAABAAMAAAACAAgAAAABAAMAAAADAAgAAAABAAMAAAAEAAgAAAABAAMAAAAEAAcAAAABAAMAAAAEAAYAAAABAAMAAAAEAAUAAAABAAMAAAAEAAMAAAABAAMAAAAEAAIAAAABAAMAAAAEAAEAAAABAAMAAAA=")
+tile_set = ExtResource("2_hrcei")
+
+[node name="Yellow" type="TileMapLayer" parent="World" unique_id=1891298997]
+tile_set = ExtResource("2_hrcei")
+
+[node name="Cyan" type="TileMapLayer" parent="World" unique_id=1027359205]
+tile_set = ExtResource("2_hrcei")
+
+[node name="Magenta" type="TileMapLayer" parent="World" unique_id=2099105749]
+tile_set = ExtResource("2_hrcei")
+
+[node name="Entities" type="Node2D" parent="World" unique_id=403681453]
+
+[node name="Exit" parent="World/Entities" unique_id=1044899614 instance=ExtResource("3_xa7n4")]
+position = Vector2(224, 480)
+
+[node name="Mask" parent="World/Entities" unique_id=909963934 instance=ExtResource("4_bo4dx")]
+position = Vector2(224, 96)
+
+[node name="Mask2" parent="World/Entities" unique_id=1739144253 instance=ExtResource("5_76toy")]
+position = Vector2(224, 288)
+
+[node name="Player" parent="." unique_id=1723262677 instance=ExtResource("6_8g4ke")]
+position = Vector2(96, 96)
+
+[node name="Ui" parent="." unique_id=1244219755 node_paths=PackedStringArray("player") instance=ExtResource("7_56gwk")]
+player = NodePath("../Player")
