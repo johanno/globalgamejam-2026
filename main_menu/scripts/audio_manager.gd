@@ -1,7 +1,7 @@
 extends Node
 
-@onready var music_player: AudioStreamPlayer = $MusicPlayer
-@onready var sound_player: AudioStreamPlayer = $SoundPlayer
+@export var music_player: AudioStreamPlayer #= $MusicPlayer
+@export var sound_player: AudioStreamPlayer #= $SoundPlayer
 
 func _ready():
 	pass # Replace with function body.

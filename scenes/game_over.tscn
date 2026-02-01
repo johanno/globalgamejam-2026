@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://na0ftae0f24"]
 
-[ext_resource type="Script" path="res://scripts/retry_button.gd" id="1_xeevv"]
+[ext_resource type="Script" uid="uid://wp30734mioef" path="res://scripts/retry_button.gd" id="1_xeevv"]
 
 [node name="GameOver" type="Control" unique_id=1806660987]
 layout_mode = 3
