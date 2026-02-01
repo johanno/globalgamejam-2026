@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://kwnf7ao7lnmo" path="res://icon.svg" id="5_fh4ka"]
 [ext_resource type="PackedScene" uid="uid://b0ql3ja5rtxi8" path="res://scenes/mask_red.tscn" id="6_qewby"]
 [ext_resource type="PackedScene" uid="uid://dmvgy7ro83k1a" path="res://scenes/enemy.tscn" id="7_bradm"]
+[ext_resource type="PackedScene" uid="uid://bu7dan5fpgvs5" path="res://scenes/exit.tscn" id="8_5mhml"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_246ao"]
 animations = [{
@@ -80,3 +81,6 @@ position = Vector2(224, 544)
 move_delay = null
 color = 1
 player = NodePath("../Player")
+
+[node name="Exit" parent="." unique_id=162515309 instance=ExtResource("8_5mhml")]
+position = Vector2(288, 544)

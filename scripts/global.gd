@@ -2,6 +2,13 @@ extends Node
 
 enum TileColor { WHITE, RED, GREEN, BLUE, YELLOW, CYAN, MAGENTA }
 
+var levels: Array[PackedScene] = [
+	preload("res://scenes/tile_scene.tscn"),
+	preload("res://scenes/level3.tscn")
+]
+
+var current_level: int
+
 func add_complementary_colors(colors: Array[TileColor]) -> Array[TileColor]:
 	var copy = colors.duplicate()
 	if copy.has(TileColor.RED) and copy.has(TileColor.GREEN):
@@ -14,3 +21,15 @@ func add_complementary_colors(colors: Array[TileColor]) -> Array[TileColor]:
 		copy.append(TileColor.MAGENTA)
 
 	return copy
+
+func try_again():
+	get_tree().change_scene_to_packed(levels[current_level])
+
+func next_level():
+	current_level += 1
+	if current_level >= len(levels):
+		# GG
+		get_tree().quit()
+		return
+	
+	get_tree().change_scene_to_packed(levels[current_level])

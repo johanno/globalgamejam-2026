@@ -8,7 +8,7 @@ size = Vector2(64, 64)
 
 [node name="Mask" type="Area2D" unique_id=909963934]
 script = ExtResource("1_0td2m")
-mask_type = 1
+mask_type = 2
 metadata/_edit_group_ = true
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1495597177]
