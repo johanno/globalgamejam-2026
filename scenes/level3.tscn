@@ -42,6 +42,7 @@ position = Vector2(288, 159)
 
 [node name="Enemy" parent="." unique_id=1253163092 node_paths=PackedStringArray("player") instance=ExtResource("7_bradm")]
 position = Vector2(224, 544)
+move_delay = 1.0
 color = 1
 player = NodePath("../Player")
 
