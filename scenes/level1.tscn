@@ -64,3 +64,14 @@ position = Vector2(96, 96)
 
 [node name="Ui" parent="." unique_id=1244219755 node_paths=PackedStringArray("player") instance=ExtResource("8_i8kv5")]
 player = NodePath("../Player")
+
+[node name="Label" type="Label" parent="." unique_id=702235317]
+offset_left = 868.0
+offset_top = 30.0
+offset_right = 1087.0
+offset_bottom = 201.0
+theme_override_font_sizes/font_size = 40
+text = "Movement:
+W
+A S D"
+horizontal_alignment = 1
