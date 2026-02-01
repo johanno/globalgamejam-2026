@@ -1,0 +1,83 @@
+[gd_scene format=4 uid="uid://d24ukaxx7pyys"]
+
+[ext_resource type="Script" uid="uid://dit23ptcb8os2" path="res://scripts/world.gd" id="1_76aq6"]
+[ext_resource type="TileSet" uid="uid://dsb5rh7cyoisp" path="res://all_tiles.tres" id="2_v4gm1"]
+[ext_resource type="PackedScene" uid="uid://b0ql3ja5rtxi8" path="res://scenes/mask_red.tscn" id="3_g54xt"]
+[ext_resource type="PackedScene" uid="uid://dmvgy7ro83k1a" path="res://scenes/enemy.tscn" id="4_7pj42"]
+[ext_resource type="PackedScene" uid="uid://bu7dan5fpgvs5" path="res://scenes/exit.tscn" id="5_thmvh"]
+[ext_resource type="PackedScene" uid="uid://badwwdavjnjns" path="res://scenes/player.tscn" id="6_54swg"]
+[ext_resource type="PackedScene" uid="uid://cdgvrxot6yg2c" path="res://scenes/mask_blue.tscn" id="6_g54xt"]
+[ext_resource type="PackedScene" uid="uid://c6j72337vl145" path="res://scenes/mask_green.tscn" id="7_7pj42"]
+[ext_resource type="PackedScene" uid="uid://clecbvtpi7obo" path="res://scenes/UI.tscn" id="7_teump"]
+
+[node name="TileScene" type="Node2D" unique_id=1554157182]
+script = ExtResource("1_76aq6")
+
+[node name="World" type="Node2D" parent="." unique_id=1650353264]
+unique_name_in_owner = true
+
+[node name="White" type="TileMapLayer" parent="World" unique_id=1805872778]
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAMAAAAEAAIAAAAAAAMAAAAOAAkAAAAAAAMAAAAAAAEAAAABAAMAAAABAAIAAAABAAMAAAAAAAIAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAABAAMAAAACAAEAAAAAAAMAAAADAAEAAAAAAAMAAAAEAAEAAAAAAAMAAAACAAAAAAABAAMAAAADAAAAAAABAAMAAAAEAAAAAAACAAMAAAACAAIAAAACAAMAAAADAAIAAAACAAMAAAAFAAAAAAABAAMAAAAFAAEAAAABAAMAAAAFAAIAAAABAAMAAAAFAAMAAAABAAMAAAADAAMAAAABAAMAAAADAAQAAAABAAMAAAAFAAQAAAABAAMAAAADAAUAAAABAAMAAAADAAYAAAABAAMAAAAFAAUAAAABAAMAAAAFAAYAAAABAAMAAAAEAAYAAAAAAAMAAAAEAAUAAAAAAAMAAAAEAAcAAAAAAAMAAAADAAcAAAAAAAMAAAAFAAcAAAAAAAMAAAADAAgAAAABAAMAAAAEAAgAAAABAAMAAAAFAAgAAAABAAMAAAACAAcAAAAAAAMAAAABAAcAAAAAAAMAAAAAAAcAAAABAAMAAAACAAgAAAABAAMAAAABAAgAAAABAAMAAAAAAAgAAAABAAMAAAAJAAYAAAABAAMAAAAKAAYAAAABAAMAAAALAAYAAAABAAMAAAAJAAgAAAABAAMAAAAKAAgAAAABAAMAAAALAAgAAAABAAMAAAAKAAcAAAAAAAMAAAAEAAQAAAAAAAMAAAA=")
+tile_set = ExtResource("2_v4gm1")
+
+[node name="Red" type="TileMapLayer" parent="World" unique_id=1321831016]
+tile_map_data = PackedByteArray("AAAEAAMAAAAAAAIAAAAEAAUAAAABAAIAAAAEAAYAAAABAAIAAAANAAgAAAAAAAIAAAA=")
+tile_set = ExtResource("2_v4gm1")
+
+[node name="Green" type="TileMapLayer" parent="World" unique_id=208363271]
+tile_map_data = PackedByteArray("AAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAA=")
+tile_set = ExtResource("2_v4gm1")
+
+[node name="Blue" type="TileMapLayer" parent="World" unique_id=919658176]
+tile_map_data = PackedByteArray("AAABAAYAAAAAAAEAAAABAAUAAAAAAAEAAAABAAQAAAAAAAEAAAAJAAcAAAABAAEAAAALAAcAAAAAAAEAAAAMAAcAAAAAAAEAAAANAAcAAAAAAAEAAAAOAAcAAAAAAAEAAAAOAAgAAAAAAAEAAAAPAAcAAAABAAEAAAAPAAgAAAABAAEAAAA=")
+tile_set = ExtResource("2_v4gm1")
+
+[node name="Yellow" type="TileMapLayer" parent="World" unique_id=238043569]
+tile_set = ExtResource("2_v4gm1")
+
+[node name="Cyan" type="TileMapLayer" parent="World" unique_id=1116218163]
+tile_set = ExtResource("2_v4gm1")
+
+[node name="Magenta" type="TileMapLayer" parent="World" unique_id=997281400]
+tile_set = ExtResource("2_v4gm1")
+
+[node name="Entities" type="Node2D" parent="World" unique_id=1317727070]
+
+[node name="MaskRed" parent="World/Entities" unique_id=909963934 instance=ExtResource("3_g54xt")]
+position = Vector2(288, 159)
+
+[node name="EnemyMagenta" parent="World/Entities" unique_id=1253163092 node_paths=PackedStringArray("player") instance=ExtResource("4_7pj42")]
+position = Vector2(350, 480)
+move_delay = 1.0
+color = 6
+player = NodePath("../../../Player")
+
+[node name="Exit" parent="World/Entities" unique_id=162515309 instance=ExtResource("5_thmvh")]
+position = Vector2(927, 607)
+
+[node name="MaskBlue" parent="World/Entities" unique_id=652976492 instance=ExtResource("6_g54xt")]
+position = Vector2(96, 481)
+
+[node name="MaskGreen" parent="World/Entities" unique_id=1676245912 instance=ExtResource("7_7pj42")]
+position = Vector2(95, 289)
+
+[node name="EnemyCyan" parent="World/Entities" unique_id=211447411 node_paths=PackedStringArray("player") instance=ExtResource("4_7pj42")]
+position = Vector2(928, 480)
+color = 5
+player = NodePath("../../../Player")
+
+[node name="EnemyYellow" parent="World/Entities" unique_id=20292226 node_paths=PackedStringArray("player") instance=ExtResource("4_7pj42")]
+position = Vector2(669, 480)
+color = 4
+player = NodePath("../../../Player")
+
+[node name="Player" parent="." unique_id=1723262677 instance=ExtResource("6_54swg")]
+position = Vector2(96, 96)
+
+[node name="Ui" parent="." unique_id=1244219755 node_paths=PackedStringArray("player") instance=ExtResource("7_teump")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+player = NodePath("../Player")
