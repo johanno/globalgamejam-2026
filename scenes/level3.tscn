@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dsb5rh7cyoisp" path="res://all_tiles.tres" id="2_5mhml"]
 [ext_resource type="PackedScene" uid="uid://badwwdavjnjns" path="res://scenes/player.tscn" id="6_6lxtr"]
 [ext_resource type="PackedScene" uid="uid://b0ql3ja5rtxi8" path="res://scenes/mask_red.tscn" id="6_qewby"]
+[ext_resource type="PackedScene" uid="uid://clecbvtpi7obo" path="res://scenes/UI.tscn" id="7_b72m1"]
 [ext_resource type="PackedScene" uid="uid://dmvgy7ro83k1a" path="res://scenes/enemy.tscn" id="7_bradm"]
 [ext_resource type="PackedScene" uid="uid://bu7dan5fpgvs5" path="res://scenes/exit.tscn" id="8_5mhml"]
 
@@ -49,3 +50,6 @@ position = Vector2(288, 544)
 
 [node name="Player" parent="." unique_id=1723262677 instance=ExtResource("6_6lxtr")]
 position = Vector2(96, 96)
+
+[node name="Ui" parent="." unique_id=1244219755 node_paths=PackedStringArray("player") instance=ExtResource("7_b72m1")]
+player = NodePath("../Player")
