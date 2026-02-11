@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cvm1yjd8x3724" path="res://images/mask_red.png" id="1_5en4g"]
 [ext_resource type="Script" uid="uid://dfr1d03hkyry7" path="res://scripts/ui.gd" id="1_ua6yw"]
+[ext_resource type="Script" uid="uid://x3f0qjs4rhth" path="res://scripts/ui_lables.gd" id="2_75u2n"]
 [ext_resource type="Texture2D" uid="uid://fqav7llh4kdq" path="res://images/mask_green.png" id="2_ua6yw"]
 [ext_resource type="Texture2D" uid="uid://cas2ym5heefc4" path="res://images/mask_blue.png" id="3_75u2n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5en4g"]
-bg_color = Color(0.6, 0.6, 0.6, 0.23921569)
+bg_color = Color(0.17657751, 0.17657751, 0.17657751, 0.4627451)
 
 [node name="Ui" type="Control" unique_id=1244219755]
 layout_mode = 3
@@ -52,8 +53,10 @@ horizontal_alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer/GiveUpContainer" unique_id=121234793]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Q"
+text = "R"
 horizontal_alignment = 1
+script = ExtResource("2_75u2n")
+action_name = "try_again"
 
 [node name="RedContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer" unique_id=1950136772]
 unique_name_in_owner = true
@@ -69,8 +72,10 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer/RedContainer" unique_id=1499496105]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "E"
+text = "1"
 horizontal_alignment = 1
+script = ExtResource("2_75u2n")
+action_name = "toggle_red_mask"
 
 [node name="GreenContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer" unique_id=1996299491]
 unique_name_in_owner = true
@@ -86,8 +91,10 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer/GreenContainer" unique_id=2112646399]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "R"
+text = "2"
 horizontal_alignment = 1
+script = ExtResource("2_75u2n")
+action_name = "toggle_green_mask"
 
 [node name="BlueContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer" unique_id=690767699]
 unique_name_in_owner = true
@@ -103,5 +110,7 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/BoxContainer/BlueContainer" unique_id=965570878]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "T"
+text = "3"
 horizontal_alignment = 1
+script = ExtResource("2_75u2n")
+action_name = "toggle_blue_mask"

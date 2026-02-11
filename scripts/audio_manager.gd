@@ -4,14 +4,12 @@ extends Node
 @onready var sound_player: AudioStreamPlayer = $SoundPlayer
 
 func _ready():
-	print("HEEEELOOOOOOOOOOOOO!!!!!!")
-	print($MusicPlayer)
-	pass # Replace with function body.
+    pass # Replace with function body.
 
 func play_button_sound():
-	if sound_player:
-		sound_player.play()
+    if sound_player:
+        sound_player.play()
 
 func play_music_sound():
-	if music_player:
-		music_player.play()
+    if music_player:
+        music_player.play()

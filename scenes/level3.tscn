@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dit23ptcb8os2" path="res://scripts/world.gd" id="1_b72m1"]
 [ext_resource type="TileSet" uid="uid://dsb5rh7cyoisp" path="res://all_tiles.tres" id="2_5mhml"]
+[ext_resource type="Texture2D" uid="uid://b4tgxt6hqvdye" path="res://images/detailed-structure-marble-natural-pattern-background-design.jpg" id="2_rupth"]
 [ext_resource type="PackedScene" uid="uid://badwwdavjnjns" path="res://scenes/player.tscn" id="6_6lxtr"]
 [ext_resource type="PackedScene" uid="uid://b0ql3ja5rtxi8" path="res://scenes/mask_red.tscn" id="6_qewby"]
 [ext_resource type="PackedScene" uid="uid://clecbvtpi7obo" path="res://scenes/UI.tscn" id="7_b72m1"]
@@ -10,6 +11,11 @@
 
 [node name="TileScene" type="Node2D" unique_id=1554157182]
 script = ExtResource("1_b72m1")
+
+[node name="DetailedStructureMarbleNaturalPatternBackgroundDesign" type="Sprite2D" parent="." unique_id=1305106661]
+position = Vector2(581.00006, 509)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_rupth")
 
 [node name="World" type="Node2D" parent="." unique_id=1650353264]
 unique_name_in_owner = true

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dit23ptcb8os2" path="res://scripts/world.gd" id="1_bbk5w"]
 [ext_resource type="TileSet" uid="uid://dsb5rh7cyoisp" path="res://all_tiles.tres" id="2_conm7"]
+[ext_resource type="Texture2D" uid="uid://b4tgxt6hqvdye" path="res://images/detailed-structure-marble-natural-pattern-background-design.jpg" id="2_d3jkd"]
 [ext_resource type="Texture2D" uid="uid://dkgn3ycon5ayg" path="res://images/red_arrow.png" id="3_conm7"]
 [ext_resource type="PackedScene" uid="uid://bu7dan5fpgvs5" path="res://scenes/exit.tscn" id="3_d3jkd"]
 [ext_resource type="Script" uid="uid://cu3pmukqfidbp" path="res://scenes/red_arrow.gd" id="4_d3jkd"]
@@ -12,6 +13,11 @@
 
 [node name="TileScene" type="Node2D" unique_id=967353875]
 script = ExtResource("1_bbk5w")
+
+[node name="DetailedStructureMarbleNaturalPatternBackgroundDesign" type="Sprite2D" parent="." unique_id=2141077842]
+position = Vector2(581.00006, 509)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_d3jkd")
 
 [node name="World" type="Node2D" parent="." unique_id=929708630]
 unique_name_in_owner = true
@@ -50,6 +56,17 @@ texture = ExtResource("3_conm7")
 script = ExtResource("4_d3jkd")
 mask = NodePath("../Mask")
 
+[node name="Label" type="Label" parent="World/Entities/RedArrow" unique_id=1396710063]
+offset_left = 96.361374
+offset_top = 59.04296
+offset_right = 350.3614
+offset_bottom = 172.04297
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 40
+text = "LOOK!
+UI ELEMENTS"
+horizontal_alignment = 1
+
 [node name="Exit" parent="World/Entities" unique_id=1044899614 instance=ExtResource("3_d3jkd")]
 position = Vector2(224, 480)
 
@@ -63,9 +80,15 @@ position = Vector2(224, 288)
 position = Vector2(96, 96)
 
 [node name="Ui" parent="." unique_id=1244219755 node_paths=PackedStringArray("player") instance=ExtResource("8_i8kv5")]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1151.0
+offset_bottom = 647.0
+grow_horizontal = 1
+grow_vertical = 1
 player = NodePath("../Player")
 
-[node name="Label" type="Label" parent="." unique_id=702235317]
+[node name="Movement" type="Label" parent="." unique_id=702235317]
 offset_left = 868.0
 offset_top = 30.0
 offset_right = 1087.0
